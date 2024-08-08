@@ -1,0 +1,55 @@
+.login{
+    // overflow: hidden;
+    form{
+        // animation: scroll-left 0.5s ease;
+        .input-field{
+            input{
+                cursor: pointer;
+            }
+            input:hover, input:focus{
+                outline: none;
+                box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
+                border: 1px solid rgba(1, 41, 112, 0.3);
+            }
+            span{
+                cursor: pointer;
+            }
+            span:hover{
+                color: var(--second);
+            }
+            .login-button{
+                border: 1px solid var(--second);
+                background-color: var(--second);
+                color: white;
+            }
+            .login-button:hover{
+                border: 1px solid var(--second);
+                color: var(--second);
+                background-color: transparent;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width : 440px) {
+    .login-container{
+        form{
+            box-shadow: none;
+        }
+    }
+}
+
+
+
+@keyframes scroll-left {
+    0%{
+        transform: translateX(80%);
+    }
+    50%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}

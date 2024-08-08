@@ -1,0 +1,135 @@
+
+.main-page{
+    height: 100vh;
+    background-image: url("../../../public/images/bg-warer1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 20px;
+
+    .navbar-container{
+        height: 90px;
+        width: 100%;
+        padding: 20px;
+        
+        div{
+            height: 100%;
+            img{
+                // height: 100%;
+                // width: 100%;
+                width: 250px;
+                height: 91px;
+                cursor: pointer;
+            }
+        }
+        .nav-items{
+            span{
+                font-weight: bold;
+                svg{
+                    font-size: 20px;
+                }
+                span{
+                    cursor: pointer;
+                }
+                
+            }
+        }
+    }
+    
+    @media screen and (max-width : 440px) {
+        .navbar-container{
+            padding: 0px;
+            display: flex;
+            flex-direction: column;
+
+            div{
+                img{
+                    height: 80%;
+                    width: 80%;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width :"") {
+        
+    }
+
+
+    .login-signup-buttons-container{
+        width: 100%;
+        // height: calc(100vh - 130px);
+
+        .login-signup{
+            background-color: white;
+            border-radius: 30px;
+            border: none;
+            box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
+            padding: 50px !important;
+
+            .container{
+                position: relative;
+                // overflow: hidden;
+                div{
+                    width: 200px;
+                    height: 180px;
+                    cursor: pointer;
+                    border-radius: 20px;
+                    // border: 1px solid rgba(1, 41, 112, 0.15);
+                    border: 1px solid #EAE8E9;
+                    background-color: white;
+                    // animation: scroll-left 0.5s ease;
+
+                    img{
+                        height: 50%;
+                        width: 50%;
+                    }
+                    
+                    
+                }
+                div:hover{
+                    box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
+                    color: #1A9CD0 !important;
+                }
+            }
+            p{
+                span{
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    ul{
+        list-style: none;
+    }
+}
+
+@media screen and (max-width : 440px) {
+    .main-page{
+        padding: 10px;
+        height: 100%;
+    }
+
+    .login-signup-buttons-container{
+        .login-signup{
+            .container{
+                display: flex;
+                flex-direction: column;
+                width: 250px;
+            }
+        }
+    }
+}
+
+
+@keyframes scroll-left {
+    0%{
+        transform: translateX(80%);
+    }
+    50%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}

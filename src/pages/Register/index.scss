@@ -1,0 +1,134 @@
+// .register{
+//     height: 100vh;
+//     width: 100vw;
+//     // background-color: rgba(59,130,246,0.5);
+//     .register-container{
+//         background-color: rgb(249, 251, 254);
+//         padding: 20px;
+//         height: 100%;
+//         .container{
+//             box-shadow: rgba(0, 0, 0, 0.15) 2px 0px 4px 0px;
+//             span{
+//                 border: 1px solid black;
+//                 span{
+//                     border: none;
+//                     font-weight: 800;
+//                 }
+//                 img{
+//                     height: 40px;
+//                     width: 40px;
+//                 }
+//             }
+//             span:hover{
+//                 cursor: pointer;
+//                 color: white;
+//                 background-color: black;
+//             }
+//             div{
+//                 input:hover, input:focus{
+//                     outline: none;
+//                     box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
+//                     border: 1px solid rgba(1, 41, 112, 0.3);
+//                     cursor: pointer;
+//                 }
+//                 span{
+//                     // height: 0.02px;
+//                     // width: 20px;
+//                     border: 0.5px solid black;
+//                     width: 80px;
+//                     height: 0.02px;
+//                 }
+//                 div:hover{
+//                     cursor: pointer;
+//                 }
+//             }
+//         }
+//     }
+//     .signup-scroll{
+//         overflow: hidden;
+//         .scroll-container1{
+//             // overflow: hidden;
+//             white-space: nowrap;
+//             animation: scroll-left 15s linear infinite;
+
+//             .card{
+//                 display: inline-block;
+//                 flex: 0 0 auto;
+//             }
+//         }
+//         .scroll-container2{
+//             overflow: hidden;
+//             white-space: nowrap;
+//             animation: scroll-right 15s linear infinite;
+
+//             .card{
+//                 display: inline-block;
+//                 flex: 0 0 auto;
+//             }
+//         }
+//     }
+// }
+
+
+// @keyframes scroll-left {
+//     0%{
+//         transform: translateX(10%);
+//     }
+//     100%{
+//         transform: translateX(-100%);
+//     }
+// }
+
+
+// @keyframes scroll-right {
+//     0%{
+//         transform: translateX(0%);
+//     }
+//     100%{
+//         transform: translateX(100%);
+//     }
+// }
+
+
+
+form{
+    .input-field{
+        input{
+            cursor: pointer;
+        }
+        label{
+            color: #F37021;
+        }
+        input:hover, input:focus{
+            outline: none;
+            box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
+            border: 1px solid rgba(1, 41, 112, 0.3);
+        }
+        span{
+            cursor: pointer;
+        }
+        span:hover{
+            color: var(--second);
+        }
+        .login-button{
+            border: 1px solid var(--second);
+            background-color: var(--second);
+            color: white;
+        }
+        .login-button:hover{
+            border: 1px solid var(--second);
+            color: var(--second);
+            background-color: transparent;
+        }
+    }
+}
+
+
+
+@media screen and (max-width : 440px) {
+.login-container{
+    form{
+        box-shadow: none;
+    }
+}
+}

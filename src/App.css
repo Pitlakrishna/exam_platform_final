@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    scroll-behavior: smooth;
+    --primary : #4154f1;
+    /* --second : #717ff5; */
+    --second : #285A97;
+    --bgColor : #f6f9ff;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--bgColor);
+    color: #444444;
+}
+a{
+    text-decoration: none;
+    color: var(--primary);
+}
+a:hover{
+    text-decoration: none;
+    color: var(--second);
+}
