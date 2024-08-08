@@ -13,52 +13,52 @@ export const Sidebar = () => {
             </div>
             <ul className="sidebar-nav" id="sidebar-nav">
                 <li className="nav-item">
-                    <a href="#" className="nav-link collapsed">
+                    <span className="nav-link collapsed">
                         <FaWpforms className="i"/>
                         <span className="">Dashboard</span>
-                    </a>
+                    </span>
                 </li>
                 <li className="nav-item">
-                    <a href="#" className="nav-link collapsed" data-bs-target = "#components-nav" data-bs-toggle = "collapse">
+                    <span className="nav-link collapsed" data-bs-target = "#components-nav" data-bs-toggle = "collapse">
                         <FaWpforms className="i"/>
                         <span className="">Profile</span>
                         <GoChevronDown className="ms-auto i"/>
-                    </a>
+                    </span>
                     <ul id="components-nav" className="nav-content collapse" data-bs-parent = "#sidebar-nav">
                         <li>
-                            <a href="/dashboard">
+                            <span>
                                 <span>Personal Details</span>
-                            </a>
+                            </span>
                         </li>
                         <li>
-                            <a href="/dashboard">
+                            <span>
                                 <span>Education</span>
-                            </a>
+                            </span>
                         </li>
                         <li>
-                            <a href="/dashboard">
+                            <span>
                                 <span>Resume</span>
-                            </a>
+                            </span>
                         </li>
                     </ul>
                 </li>
                 <li className="nav-item">
-                    <a href="#" className="nav-link collapsed">
+                    <span className="nav-link collapsed">
                         <FaWpforms className="i"/>
                         <span className="">Results</span>
-                    </a>
+                    </span>
                 </li>
                 <li className="nav-item">
-                    <a href="#" className="nav-link collapsed">
+                    <span className="nav-link collapsed">
                         <FaWpforms className="i"/>
                         <span className="">Practice</span>
-                    </a>
+                    </span>
                 </li>
                 <li className="nav-item">
-                    <a href="#" className="nav-link collapsed">
+                    <span className="nav-link collapsed">
                         <FaWpforms className="i"/>
                         <span className="">Invite Friends</span>
-                    </a>
+                    </span>
                 </li>
             </ul>
         </aside>
