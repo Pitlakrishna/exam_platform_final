@@ -1,24 +1,24 @@
 
-// #main{
-//     margin-top: 60px;
-//     padding: 20px 30px;
-//     transition: all 0.3s;
-// }
+#main{
+    margin-top: 60px;
+    padding: 20px 30px;
+    transition: all 0.3s;
+}
 
-// @media screen and (max-width : 1999px) {
-//     #main{
-//         padding: 10px;
-//     }
-// }
+@media screen and (max-width : 1999px) {
+    #main{
+        padding: 10px;
+    }
+}
 
-// @media screen and (min-width : 1200px) {
-//     #main{
-//         margin-left: 300px;
-//     }
+@media screen and (min-width : 1200px) {
+    #main{
+        margin-left: 300px;
+    }
 
-//     .toggle-sidebar{
-//         #main{
-//             margin-left: 0;
-//         }
-//     }
-// }
+    .toggle-sidebar{
+        #main{
+            margin-left: 0;
+        }
+    }
+}

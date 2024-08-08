@@ -51,11 +51,6 @@
         }
     }
 
-    @media screen and (max-width :"") {
-        
-    }
-
-
     .login-signup-buttons-container{
         width: 100%;
         // height: calc(100vh - 130px);
@@ -66,6 +61,10 @@
             border: none;
             box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
             padding: 50px !important;
+            
+            h5{
+                margin-bottom: 20px;
+            }
 
             .container{
                 position: relative;
@@ -98,6 +97,22 @@
                 }
             }
         }
+
+        @media screen and (max-width: 440px) {
+            .login-signup{
+                // background-color: transparent !important;
+
+                .container{
+                    display: flex;
+                    flex-direction: column;
+                    width: 250px;
+                    margin: auto;
+                    div{
+                        margin: auto;
+                    }
+                }
+            }
+        }
     }
     ul{
         list-style: none;
@@ -108,16 +123,6 @@
     .main-page{
         padding: 10px;
         height: 100%;
-    }
-
-    .login-signup-buttons-container{
-        .login-signup{
-            .container{
-                display: flex;
-                flex-direction: column;
-                width: 250px;
-            }
-        }
     }
 }
 

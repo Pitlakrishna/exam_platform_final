@@ -70,16 +70,16 @@
                     line-height: 0;
                     display: inline-block;
 
-                    a{
+                    span{
                         color: #2d2d2d !important;
                         display: flex;
                         gap: 3px;
                         align-items: center;
-                        padding: 20px;
+                        padding: 10px;
                         text-decoration: none;
                         width: 225px;
                     }
-                    a:hover{
+                    span:hover{
                         color: #4154f1 !important;
                         background-color: #f6f9ff;
                     }

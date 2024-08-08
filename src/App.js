@@ -1,10 +1,11 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css';
-import { MainPage } from './pages/MainPage';
 import { Dashboard } from './pages/Dashboard';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { Instructions } from './pages/Instructions';
+import { HomePage } from './pages/HomePage';
 
 
 function App() {
@@ -12,8 +13,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path='/' element = {<MainPage/>}/>
+          <Route path='/' element = {<HomePage/>}/>
           <Route path='/dashboard' element = {<Dashboard/>}/>
+          <Route path = "/instructions" element = {<Instructions/>}/>
         </Routes>
       </BrowserRouter>
     </div>

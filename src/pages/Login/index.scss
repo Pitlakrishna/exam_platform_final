@@ -1,5 +1,8 @@
 .login{
     // overflow: hidden;
+    background-color: white;
+    padding: 20px;
+    border-radius: 30px;
     form{
         // animation: scroll-left 0.5s ease;
         .input-field{
@@ -17,6 +20,16 @@
             span:hover{
                 color: var(--second);
             }
+            
+            @media screen and (max-width : 540px) {
+                span{
+                    font-size: 14px;
+                }
+                p{
+                    font-size: 14px;
+                }
+            }
+
             .login-button{
                 border: 1px solid var(--second);
                 background-color: var(--second);
@@ -33,7 +46,7 @@
 }
 
 @media screen and (max-width : 440px) {
-    .login-container{
+    .login{
         form{
             box-shadow: none;
         }

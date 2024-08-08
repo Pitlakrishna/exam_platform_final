@@ -34,8 +34,8 @@ export const MainPage = () => {
                 <div className={isHome ? 'login-signup mt-5 col-12 col-sm-12 col-md-7 col-lg-6 col-xl-5 p-5 position-relative' : 'login-signup mt-5 col-12 col-sm-12 col-md-7 col-lg-6 col-xl-4 p-5 position-relative'}>
                     {isHome && <>
                         <h3 style={{color:"#F37021"}}>India's Structured Freshers</h3>
-                        <h5 style={{color:"#F37021", lineHeight:"5px"}}>Online Test series platform</h5>
-                        <small className='py-5' style={{color:"#1A9CD0", lineHeight:"30px"}}>Mock Test: 100% FREE, Practice Onllne Test Serles</small>
+                        <h5 style={{color:"#F37021"}}>Online Test series platform</h5>
+                        <small className='mt-5' style={{color:"#1A9CD0"}}>Mock Test: 100% FREE, Practice Onllne Test Serles</small>
                         <div className='container d-flex justify-content-center gap-3 mt-5'>
                             <div className='d-flex flex-column align-items-center justify-content-center gap-3' onClick={onLoginClick}>
                                 <img src='/images/wehire-login.png' alt='login'/>
@@ -54,7 +54,7 @@ export const MainPage = () => {
                         {/* <div className='text-center'>
                             <button className='btn btn-primary col-xl-12 col-12' onClick={() => setIsHome(true)}>Back</button>
                         </div> */}
-                        <span className='position-absolute top-0 mt-4 fs-5' onClick={() => setIsHome(true)}><FaArrowLeft/></span>
+                        <span className='position-absolute top-0 mt-3 fs-5' onClick={() => setIsHome(true)}><FaArrowLeft/></span>
 
                     </>}
                 </div>

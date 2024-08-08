@@ -2,9 +2,11 @@
 import { FaWpforms } from "react-icons/fa";
 import { GoChevronDown } from "react-icons/go";
 import './index.scss'
+import { useNavigate } from "react-router-dom";
 
 
 export const Sidebar = () => {
+    const navigate = useNavigate();
     return(
         <aside id="sidebar" className="sidebar">
             <div className="logo-img d-flex flex-column align-items-center mb-3">
@@ -26,18 +28,13 @@ export const Sidebar = () => {
                     </span>
                     <ul id="components-nav" className="nav-content collapse" data-bs-parent = "#sidebar-nav">
                         <li>
-                            <span>
+                            <span onClick={() => navigate("/personal-details")}>
                                 <span>Personal Details</span>
                             </span>
                         </li>
                         <li>
-                            <span>
+                            <span onClick={() => navigate("/education")}>
                                 <span>Education</span>
-                            </span>
-                        </li>
-                        <li>
-                            <span>
-                                <span>Resume</span>
                             </span>
                         </li>
                     </ul>

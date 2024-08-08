@@ -1,0 +1,11 @@
+.buttonStartExam {
+    border: 1px solid gray;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.buttonStartExam:disabled {
+    cursor: not-allowed !important;
+    background-color: #cccccc !important;
+    color: #666666;
+}

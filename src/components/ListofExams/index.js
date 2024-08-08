@@ -5,7 +5,7 @@ import './index.scss'
 export const ListofExams = () => {
     const navigate = useNavigate();
     return(
-        <div className="d-flex flex-column align-items-center gap-3 p-5" style={{ overflow: "scroll", scrollbarWidth: "none ", marginLeft :"300px", marginTop : "60px" }}>
+        <div className="d-flex flex-column align-items-center gap-3 p-5" style={{ overflow: "scroll", scrollbarWidth: "none " }}>
                     <h3 className="mb-5" style={{ color: "#013246" }}>List of Exams</h3>
                     <div className="d-flex flex-row justify-content-center flex-wrap gap-4" style={{ width: "100%" }}>
                         {examCardsData.map((each, i) => (
