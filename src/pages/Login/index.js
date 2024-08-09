@@ -10,7 +10,8 @@ export const Login = ({ onSignupClick }) => {
     const navigate = useNavigate();
     const { dispatch, error } = useContext(AuthContext);
     const [credentials, setCredentials] = useState({
-        email: '',
+        // email: '',
+        username : '',
         password: '',
     });
     const [showToast, setShowToast] = useState(false);
@@ -26,8 +27,8 @@ export const Login = ({ onSignupClick }) => {
         dispatch({ type: "login_start" });
 
         try {
-            // const res = await axios.post("http://localhost:8080/login", credentials);
-            // dispatch({ type: "login_success", payload: res.data });
+            const res = await axios.post("https://hotelbooking-q4vk.onrender.com/api/auth/login", credentials);
+            dispatch({ type: "login_success", payload: res.data });
             navigate("/dashboard");
         } catch (error) {
             const errorMessage = error.response?.data || "An unexpected error occurred";
@@ -41,7 +42,7 @@ export const Login = ({ onSignupClick }) => {
             <form onSubmit={onLoginSubmit}>
                 <h1 className='mb-5 text-center' style={{ color: "#1A9CD0" }}>Login</h1>
                 <div className='mb-4 input-field'>
-                    <input type="email" name="email" className='form-control' placeholder='Email' required onChange={onHandleInput} />
+                    <input type="email" name="username" className='form-control' placeholder='Email' required onChange={onHandleInput} />
                 </div>
                 <div className='mb-4 input-field'>
                     <input type="password" name="password" className='form-control' placeholder='Password' required onChange={onHandleInput} />
