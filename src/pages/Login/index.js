@@ -26,8 +26,8 @@ export const Login = ({ onSignupClick }) => {
         dispatch({ type: "login_start" });
 
         try {
-            const res = await axios.post("http://localhost:8080/login", credentials);
-            dispatch({ type: "login_success", payload: res.data });
+            // const res = await axios.post("http://localhost:8080/login", credentials);
+            // dispatch({ type: "login_success", payload: res.data });
             navigate("/dashboard");
         } catch (error) {
             const errorMessage = error.response?.data || "An unexpected error occurred";
