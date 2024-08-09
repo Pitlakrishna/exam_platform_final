@@ -9,3 +9,13 @@
     background-color: #cccccc !important;
     color: #666666;
 }
+
+@media screen and (max-width : 540px) {
+    .instructions{
+        height: 100% !important;
+
+        div{
+            padding: 15px !important;
+        }
+    }
+}

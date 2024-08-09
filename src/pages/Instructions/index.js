@@ -28,12 +28,19 @@ export const Instructions = () => {
   };
 
   const onStartClick = async () => {
-    await handleFullScreen()
-    navigate("/exam")
+    const size = window.innerWidth;
+    // console.log(size);
+    if(size < 770){
+      alert("not supported for mobile. use laptop or desktop to continue the exam")
+    }
+    else{
+      await handleFullScreen()
+      navigate("/exam")
+    }
   }
 
   return (
-    <div className="d-flex flex-row justify-content-center align-items-center" style={{ width: "100vw", height: "100vh"}}>
+    <div className="instructions d-flex flex-row justify-content-center align-items-center" style={{ width: "100vw", height: "100vh"}}>
       <div className="p-5 bg-light d-flex flex-column gap-2" style={{ width: "fit-content", borderRadius: "10px" }}>
         <h5>Instructions:</h5>
         <p><b>a.</b> This assessment contains two sections :  1.Technical Round and  2.General Round</p>

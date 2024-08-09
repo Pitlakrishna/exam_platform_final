@@ -1,7 +1,9 @@
 .home-page-container{
     height: 100vh;
-    background-image: url("../../../public/images/bg-warer1.png");
-    background-size: cover;
+    // background-image: url("../../../public/images/bg-warer1.png");
+    // background-image: url("https://png.pngtree.com/background/20210710/original/pngtree-flat-business-style-banner-picture-image_1020686.jpg");
+    // background-color: var(--bgColor);
+    background-size: contain;
     background-repeat: no-repeat;
     background-attachment: fixed;
 
@@ -52,18 +54,34 @@
                     color: #1A9CD0 !important;
                 }
             }
+            .back-icon{
+                padding-inline: 10px;
+                display: flex;
+                align-items: center;
+                height: 40px;
+
+                svg{
+                    // height: 100%;
+                    // width: 100%;
+                }
+            }
+            .back-icon:hover{
+                background-color: gray;
+                border-radius: 100%;
+                color: white;
+            }
         }
     }
 }
 
 @media screen and (max-width: 540px) {
     .home-page-container{
-        height: 100%;
+        height: 100vh;
         .header-container{
             display: flex;
             flex-direction: column;
             gap: 20px;
-            height: 100%;
+            // height: 100%;
             text-align: center;
 
             .logo{
@@ -81,7 +99,7 @@
         .home-body{
             // border: 1px solid red;
             background-color: transparent !important;
-            margin-top: 0px !important;
+            margin-top: 90px !important;
             padding: 25px !important;
 
             .login-signup-container{

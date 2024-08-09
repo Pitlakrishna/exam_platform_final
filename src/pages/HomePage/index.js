@@ -32,12 +32,12 @@ export const HomePage = () => {
                 </div>
             </header>
             <div className='home-body-container'>
-                <div className={isHome ? 'col-12 col-sm-12 col-md-12 col-lg-6 col-xl-5 home-body position-relative' : 'col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 home-body position-relative'}>
+                <div className={isHome ? 'col-11 col-sm-10 col-md-8 col-lg-6 col-xl-5 home-body position-relative' : 'col-11 col-sm-10 col-md-8 col-lg-6 col-xl-4 home-body position-relative'}>
                     {
                         isHome && <>
-                            <h3 style={{color:"#F37021"}}>India's Structured Freshers</h3>
-                            <h5 style={{color:"#F37021"}}>Online Test series platform</h5>
-                            <p className='mt-3' style={{color:"#1A9CD0"}}>Mock Test: 100% FREE, Practice Onllne Test Serles</p>
+                            <h3 className='fw-bolder' style={{color:"#F37021"}}>India's Structured Freshers</h3>
+                            <h5 className='fw-bolder' style={{color:"#F37021"}}>Online Test series platform</h5>
+                            <p className='mt-3 fw-bold' style={{color:"#1A9CD0"}}>Mock Test: 100% FREE, Practice Onllne Test Serles</p>
                             <div className='login-signup-container mt-5'>
                                 <div className='login-card d-flex flex-column align-items-center justify-content-center gap-3' onClick={onLoginClick}>
                                     <img src='/images/wehire-login.png' alt='login'/>
@@ -55,13 +55,14 @@ export const HomePage = () => {
                         {isLogin && <Login onSignupClick = {onSignupClick}/>}
                         {!isLogin && <Register onLoginClick = {onLoginClick}/>}
                         
-                        <span className='position-absolute top-0 mt-5 mx-4 fs-5' onClick={() => setIsHome(true)}><FaArrowLeft/></span>
+                        <span className='back-icon position-absolute top-0 mt-5 mx-4 fs-5' onClick={() => setIsHome(true)}><FaArrowLeft/></span>
 
                     </>}
                 </div>
             </div>
-            <div className='text-center mt-5 p-3' style={{color:"#bbbbc0"}}>
+            <div className='d-flex flex-column text-center mt-5 p-3' style={{color:"#bbbbc0"}}>
                 <span>Copyright ©️ 2024 All Rights Reserved by Orbysol Systems Pvt.Ltd.</span>
+                {/* <p className='mt-3 fw-bold' style={{color:"white", fontSize:"20px"}}>Powered by Save Bharat</p> */}
             </div>
         </div>
     )

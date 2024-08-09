@@ -1,6 +1,6 @@
 
 import { FaWpforms } from "react-icons/fa";
-import { GoChevronDown } from "react-icons/go";
+// import { GoChevronDown } from "react-icons/go";
 import './index.scss'
 import { useNavigate } from "react-router-dom";
 
@@ -14,21 +14,20 @@ export const Sidebar = () => {
                 <h5 className="mt-3">Hello Eswararao</h5>
             </div>
             <ul className="sidebar-nav" id="sidebar-nav">
-                <li className="nav-item">
+                <li className="nav-item" onClick={() => navigate("/dashboard")}>
                     <span className="nav-link collapsed">
                         <FaWpforms className="i"/>
                         <span className="">Dashboard</span>
                     </span>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item" onClick={() => navigate("/dashboard/personal-details")}>
                     <span className="nav-link collapsed" data-bs-target = "#components-nav" data-bs-toggle = "collapse">
                         <FaWpforms className="i"/>
                         <span className="">Profile</span>
-                        <GoChevronDown className="ms-auto i"/>
                     </span>
-                    <ul id="components-nav" className="nav-content collapse" data-bs-parent = "#sidebar-nav">
+                    {/* <ul id="components-nav" className="nav-content collapse" data-bs-parent = "#sidebar-nav">
                         <li>
-                            <span onClick={() => navigate("/personal-details")}>
+                            <span onClick={() => navigate("/dashboard/personal-details")}>
                                 <span>Personal Details</span>
                             </span>
                         </li>
@@ -37,7 +36,7 @@ export const Sidebar = () => {
                                 <span>Education</span>
                             </span>
                         </li>
-                    </ul>
+                    </ul> */}
                 </li>
                 <li className="nav-item">
                     <span className="nav-link collapsed">
