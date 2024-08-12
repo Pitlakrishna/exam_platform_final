@@ -30,17 +30,17 @@ export const Instructions = () => {
   const onStartClick = async () => {
     const size = window.innerWidth;
     // console.log(size);
-    if(size < 770){
+    if (size < 770) {
       alert("not supported for mobile. use laptop or desktop to continue the exam")
     }
-    else{
+    else {
       await handleFullScreen()
       navigate("/exam")
     }
   }
 
   return (
-    <div className="instructions d-flex flex-row justify-content-center align-items-center" style={{ width: "100vw", height: "100vh"}}>
+    <div className="instructions d-flex flex-row justify-content-center align-items-center" style={{ width: "100vw", height: "100vh" }}>
       <div className="p-5 bg-light d-flex flex-column gap-2" style={{ width: "fit-content", borderRadius: "10px" }}>
         <h5>Instructions:</h5>
         <p><b>a.</b> This assessment contains two sections :  1.Technical Round and  2.General Round</p>
@@ -72,7 +72,7 @@ export const Instructions = () => {
         </div>
         <div className="custom-checkbox d-flex flex-row gap-2 ">
           <input type="checkbox" id="check" onClick={() => setCheked(!checked)} />
-          <label className="mt-2" htmlFor="check" >I have read the instructions and i agree with all the terms and conditions</label>
+          <label className="" htmlFor="check" >I have read the instructions and i agree with all the terms and conditions</label>
         </div>
         <div className="d-flex flex-row justify-content-center ">
           {/* cursor: !checked ? "not-allowed" : "pointer" */}

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState, useCallback } from "react";
 import { IoPersonCircle } from "react-icons/io5";
-import {QuestionNavigation} from "../../components/QuetionNav";
+import { QuestionNavigation } from "../../components/QuetionNav";
 import { useNavigate } from "react-router-dom";
 import { questions } from "../../data";
 import { ControlledContext } from "../../context/controlledContext";
@@ -167,7 +167,7 @@ export const ExamPage = () => {
                     <div className="d-flex flex-column align-items-center gap-4 bg-light p-4" style={{ width: "100%", height: "100%", borderRadius: "30px", border: '1px solid #c0c5ee' }}>
                         <span className="d-flex flex-column gap-1 justify-content-center align-items-center">
                             <span>Overall Exam Time Left</span>
-                            <span style={{ fontSize: "24px" }}>{Math.floor(examTimeLeft / 60)}m {examTimeLeft % 60}s</span>
+                            <span className="fw-bold" style={{ fontSize: "24px", color: '#219ebc' }}>{Math.floor(examTimeLeft / 60)}m {examTimeLeft % 60}s</span>
                         </span>
                         <QuestionNavigation
                             questionStatuses={questionStatuses}
@@ -188,7 +188,7 @@ export const ExamPage = () => {
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     );

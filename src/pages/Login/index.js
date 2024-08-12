@@ -4,7 +4,7 @@ import { AuthContext } from '../../context/authContext';
 import axios from 'axios';
 import { Toast, ToastContainer, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.scss'; 
+import './index.scss';
 
 export const Login = ({ onSignupClick }) => {
     const navigate = useNavigate();

@@ -6,13 +6,13 @@ import './index.scss'
 import Profile from "../../components/Profile"
 
 export const Dashboard = () => {
-    return(
+    return (
         <div className="" id="main">
-            <HeaderComponent/>
-            <Sidebar/>
+            <HeaderComponent />
+            <Sidebar />
             <Routes>
-                <Route path = "/" element = {<ListofExams/>}/>
-                <Route path="/personal-details" element = {<Profile/>}/>
+                <Route path="/" element={<ListofExams />} />
+                <Route path="/personal-details" element={<Profile />} />
             </Routes>
         </div>
     )

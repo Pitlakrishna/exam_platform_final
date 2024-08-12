@@ -15,12 +15,11 @@ const ResultPage = () => {
         { Grade: 5, Score: "80-100", Status: "Excellent" }
     ];
 
-    const { marksObtained, totalQuestions, questionsAttempted, AnsweredQuestionsList, setGradeScore } = useContext(markContext);
+    const { marksObtained, totalQuestions, questionsAttempted, AnsweredQuestionsList } = useContext(markContext);
 
     useEffect(() => {
         const score = (marksObtained / totalQuestions) * 100;
         evaluateScore(score);
-        setGradeScore(grade.status, grade.gradeGot)
     }, [marksObtained, totalQuestions]);
 
     function evaluateScore(score) {

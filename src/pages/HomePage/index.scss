@@ -1,4 +1,4 @@
-.home-page-container{
+.home-page-container {
     height: 100vh;
     // background-image: url("../../../public/images/bg-warer1.png");
     // background-image: url("https://png.pngtree.com/background/20210710/original/pngtree-flat-business-style-banner-picture-image_1020686.jpg");
@@ -6,42 +6,43 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    // border: 1px solid red;
 
-    .header-container{
+    .header-container {
         height: 100px;
         padding: 20px;
 
-        .logo{
+        .logo {
             height: 100%;
-            .logo-img{
+
+            .logo-img {
                 height: 100%;
             }
         }
-        .header-nav{
-            
-        }
+
     }
-    .home-body-container{
+
+    .home-body-container {
         // height: calc(100vh - 100px);
         // border: 1px solid red;
 
-        .home-body{
+        .home-body {
             background-color: white;
             margin: auto;
-            margin-top: 80px;
+            margin-top: 30px;
             padding: 40px;
             border-radius: 30px;
             box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
 
 
-            .login-signup-container{
+            .login-signup-container {
                 display: flex;
                 justify-content: center;
                 gap: 30px;
                 width: 100%;
                 // border: 1px solid red;
 
-                .login-card{
+                .login-card {
                     width: 200px;
                     height: 180px;
                     cursor: pointer;
@@ -49,23 +50,26 @@
                     border: 1px solid #EAE8E9;
                     background-color: white;
                 }
-                .login-card:hover{
+
+                .login-card:hover {
                     box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
                     color: #1A9CD0 !important;
                 }
             }
-            .back-icon{
+
+            .back-icon {
                 padding-inline: 10px;
                 display: flex;
                 align-items: center;
                 height: 40px;
 
-                svg{
+                svg {
                     // height: 100%;
                     // width: 100%;
                 }
             }
-            .back-icon:hover{
+
+            .back-icon:hover {
                 background-color: gray;
                 border-radius: 100%;
                 color: white;
@@ -75,43 +79,45 @@
 }
 
 @media screen and (max-width: 540px) {
-    .home-page-container{
+    .home-page-container {
         height: 100vh;
-        .header-container{
+
+        .header-container {
             display: flex;
             flex-direction: column;
             gap: 20px;
             // height: 100%;
             text-align: center;
 
-            .logo{
+            .logo {
                 height: 100%;
-                .logo-img{
+
+                .logo-img {
                     height: 70px;
                 }
             }
-            .header-nav{
-    
-            }
+
+            .header-nav {}
         }
     }
-    .home-body-container{
-        .home-body{
+
+    .home-body-container {
+        .home-body {
             // border: 1px solid red;
             background-color: transparent !important;
             margin-top: 90px !important;
             padding: 25px !important;
 
-            .login-signup-container{
+            .login-signup-container {
                 display: flex;
                 gap: 10px;
 
-                .login-card{
+                .login-card {
                     height: 130px !important;
                 }
             }
 
-            .support-p{
+            .support-p {
                 color: white !important;
             }
         }

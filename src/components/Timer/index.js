@@ -23,7 +23,7 @@ export const Timer = ({ timeLeft, setTimeLeft, handleTimeUp }) => {
       <span className=' d-flex flex-row justify-content-end align-items-end time gap-2 my-3'
         style={{ height: "70px", position: "absolute" }}>
         <span className='' style={{ fontSize: "15px", fontWeight: "600" }}>Time Left</span>
-        <span className='fs-6 text-danger' >{timeLeft}s</span>
+        <span className='fs-6 fw-bold text-danger' >{timeLeft}s</span>
       </span>
     </div>
   );

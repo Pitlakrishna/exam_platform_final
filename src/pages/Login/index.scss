@@ -1,54 +1,61 @@
-.login{
+.login {
     // overflow: hidden;
     background-color: white;
     // padding: 20px;
     border-radius: 30px;
-    
-    form{
+
+    form {
+
         // animation: scroll-left 0.5s ease;
-        .input-field{
-            input{
+        .input-field {
+            input {
                 cursor: pointer;
             }
-            input:hover, input:focus{
+
+            input:hover,
+            input:focus {
                 outline: none;
                 box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
                 border: 1px solid rgba(1, 41, 112, 0.3);
             }
-            span{
+
+            span {
                 cursor: pointer;
             }
-            span:hover{
+
+            span:hover {
                 color: var(--second);
             }
-            
+
             @media screen and (max-width : 540px) {
-                span{
+                span {
                     font-size: 14px;
                 }
-                p{
+
+                p {
                     font-size: 14px;
                 }
             }
 
-            .login-button{
+            .login-button {
                 border: 1px solid var(--second);
                 background-color: var(--second);
                 color: white;
             }
-            .login-button:hover{
+
+            .login-button:hover {
                 border: 1px solid var(--second);
                 color: var(--second);
                 background-color: transparent;
             }
         }
     }
-    
+
 }
 
 @media screen and (max-width : 440px) {
-    .login{
-        form{
+    .login {
+        form {
             box-shadow: none;
         }
     }
@@ -57,13 +64,15 @@
 
 
 @keyframes scroll-left {
-    0%{
+    0% {
         transform: translateX(80%);
     }
-    50%{
+
+    50% {
         transform: translateX(-100%);
     }
-    100%{
+
+    100% {
         transform: translateX(0);
     }
 }
