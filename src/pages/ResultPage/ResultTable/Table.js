@@ -43,6 +43,7 @@ const Result = () => {
     }, [AnsweredQuestionsList]);
 
 
+
     return (
         <div className='result_bg_container' >
             {
@@ -98,7 +99,7 @@ const Result = () => {
                             <div className='progress m-auto'
                                 style={{ height: '100%', backgroundColor: 'white' }}  >
                                 <CircularProgress
-                                    value={Math.round((correct / totalQuestions) * 100)}
+                                    value={Math.round((correct / totalQuestions) * 100) || 0}
                                     maxValue={100}
                                     radius={90}
                                     customTextLines={[`${Math.round((correct / totalQuestions) * 100)}%`, 'Marks', 'Achieved!']}
