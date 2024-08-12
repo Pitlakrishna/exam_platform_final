@@ -5,7 +5,7 @@ import { Sidebar } from "../../components/Sidebar"
 import './index.scss'
 import Profile from "../../components/Profile"
 
-export const Dashboard = () => {
+const Dashboard = () => {
     return (
         <div className="" id="main">
             <HeaderComponent />
@@ -17,3 +17,5 @@ export const Dashboard = () => {
         </div>
     )
 }
+
+export default Dashboard

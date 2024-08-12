@@ -1,4 +1,5 @@
 
+
 import { FaWpforms } from "react-icons/fa";
 // import { GoChevronDown } from "react-icons/go";
 import './index.scss'
@@ -35,7 +36,7 @@ export const Sidebar = () => {
                 </a>
 
 
-                <li className="nav-item">
+                <li className="nav-item" onClick={() => navigate("/result")} >
                     <span className="nav-link collapsed">
                         <FaWpforms className="i" />
                         <span className="">Results</span>

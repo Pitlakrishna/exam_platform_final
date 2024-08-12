@@ -71,7 +71,7 @@ const Result = () => {
                         <div className='field_container'>
                             <p className='name_para' >Email <span > :</span></p>
                             <div className='valueParaEmailValue'>
-                                <p className='value_para '  >{"shashankmende88@gmail.com"}</p>
+                                <p className='value_para '  >{"ksai94064@gmail.com"}</p>
                             </div>
                         </div>
                         {/* <div className='field_container'>
@@ -99,14 +99,30 @@ const Result = () => {
                                 </div>
                             </div>
                             <div className='progress m-auto'
-                                style={{ height: '100%', backgroundColor: 'white' }}  >
+                                style={{ height: '100%', backgroundColor: 'white' }} >
                                 <CircularProgress
-                                    value={Math.round((correct / totalQuestions) * 100) || 0}
+                                    value={
+                                        totalQuestions > 0 && correct != null && totalQuestions != null
+                                            ? Math.round((correct / totalQuestions) * 100)
+                                            : 0
+                                    }
+                                    maxValue={100}
+                                    radius={90}
+                                    customTextLines={[`${totalQuestions > 0 && correct != null && totalQuestions != null
+                                        ? Math.round((correct / totalQuestions) * 100)
+                                        : 0}%`, 'Marks', 'Achieved!']}
+                                />
+                            </div>
+
+                            {/* <div className='progress m-auto'
+                                style={{ height: '100%', backgroundColor: 'white' }} >
+                                <CircularProgress
+                                    value={Math.round((correct / totalQuestions) * 100) ?? 0}
                                     maxValue={100}
                                     radius={90}
                                     customTextLines={[`${Math.round((correct / totalQuestions) * 100)}%`, 'Marks', 'Achieved!']}
                                 />
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

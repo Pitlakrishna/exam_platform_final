@@ -1,4 +1,4 @@
-.sidebar{
+.sidebar {
     position: fixed;
     top: 60px;
     left: 0;
@@ -13,26 +13,26 @@
     box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
     background-color: #fff;
 
-    .logo-img{
-        img{
+    .logo-img {
+        img {
             height: 100px;
             width: 100px;
             border-radius: 100%;
         }
     }
 
-    .sidebar-nav{
+    .sidebar-nav {
         padding: 0;
         margin: 0;
         list-style: none;
 
-        .nav-item{
+        .nav-item {
             padding: 0;
             margin: 0;
             list-style: none;
             margin-bottom: 5px;
 
-            .nav-link{
+            .nav-link {
 
                 display: flex;
                 align-items: center;
@@ -41,9 +41,9 @@
                 transition: 0.3s;
                 padding: 10px 15px;
                 border-radius: 4px;
-                
 
-                svg{
+
+                svg {
                     font-size: 16px;
                     margin-right: 10px;
                 }
@@ -57,20 +57,21 @@
                 // }
 
             }
-            .nav-link:hover{
+
+            .nav-link:hover {
                 color: #4154f1;
                 background-color: #f6f9ff;
             }
 
-            .nav-content{
+            .nav-content {
                 list-style: none;
 
-                li{
-                    
+                li {
+
                     line-height: 0;
                     display: inline-block;
 
-                    span{
+                    span {
                         color: #2d2d2d !important;
                         display: flex;
                         gap: 3px;
@@ -79,16 +80,18 @@
                         text-decoration: none;
                         width: 225px;
                     }
-                    span:hover{
+
+                    span:hover {
                         color: #4154f1 !important;
                         background-color: #f6f9ff;
                     }
                 }
-                li:hover{
+
+                li:hover {
                     color: #4154f1 !important;
                     background-color: #f6f9ff;
                 }
-                
+
             }
         }
     }
@@ -103,20 +106,22 @@
 //     background-color: #aab7cf;
 // }
 
+
 @media screen and (max-width: 1199px) {
-    .sidebar{
+    .sidebar {
         left: -300px;
     }
-    .toggle-sidebar{
-        .sidebar{
+
+    .toggle-sidebar {
+        .sidebar {
             left: 0;
         }
     }
 }
 
 @media screen and (min-width:1200px) {
-    .toggle-sidebar{
-        .sidebar{
+    .toggle-sidebar {
+        .sidebar {
             left: -300px;
         }
     }
