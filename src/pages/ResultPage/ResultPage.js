@@ -5,7 +5,8 @@ import ImageDownload from './DownloadCertificate/DownloadCerticate';
 import { markContext } from '../../context/marks';
 
 const ResultPage = () => {
-    const [grade, setGrade] = useState({ status: "", gradeGot: 3, color: '' });
+    const [grade, setGrade] = useState({ status: "", gradeGot: 0, color: '', text: '' });
+
     const tableHead = ["Grade", "%Marks", "Interpretation"];
     const Grades = [
         { Grade: 1, Score: "0-39", Status: "Unsatisfactory" },
@@ -14,31 +15,30 @@ const ResultPage = () => {
         { Grade: 4, Score: "65-79", Status: "Very Good" },
         { Grade: 5, Score: "80-100", Status: "Excellent" }
     ];
-
-    const { marksObtained, totalQuestions, questionsAttempted, AnsweredQuestionsList } = useContext(markContext);
+    const { marksObtained, totalQuestions, HandleGradeScore } = useContext(markContext);
 
     useEffect(() => {
-        const score = (marksObtained / totalQuestions) * 100;
+        let marksScored = marksObtained / 2
+        const score = ((marksScored) / totalQuestions) * 100;
         evaluateScore(score);
+        HandleGradeScore(grade)
     }, [marksObtained, totalQuestions]);
 
     function evaluateScore(score) {
         if (score >= 0 && score <= 39) {
-            setGrade({ status: "Unsatisfactory", gradeGot: 3, color: 'red' });
+            setGrade({ status: "Unsatisfactory", gradeGot: 5, color: 'red', text: "Better luck next time." });
         } else if (score >= 40 && score <= 49) {
-            setGrade({ status: "Satisfactory", gradeGot: 3, color: 'red' });
+            setGrade({ status: "Satisfactory", gradeGot: 3, color: 'red', text: 'Better luck next time.' });
         } else if (score >= 50 && score <= 64) {
-            setGrade({ status: "Good", gradeGot: 3, color: 'blue' });
+            setGrade({ status: "Good", gradeGot: 3, color: 'blue', text: 'Congratulations' });
         } else if (score >= 65 && score <= 79) {
-            setGrade({ status: "Very Good", gradeGot: 2, color: 'gold' });
+            setGrade({ status: "Very Good", gradeGot: 2, color: 'gold', text: 'Congratulations' });
         } else if (score >= 80 && score <= 100) {
-            setGrade({ status: "Excellent", gradeGot: 1, color: 'green' });
+            setGrade({ status: "Outstanding", gradeGot: 1, color: 'green', text: 'Congratulations' });
         } else {
-            setGrade({ status: "Invalid score", gradeGot: 0, color: 'red' });
+            setGrade({ status: "Invalid score", gradeGot: 0, color: 'red', text: 'Better luck next time.' });
         }
     }
-
-
 
     return (
         <div className='ResultContainer gap-3'>
@@ -76,12 +76,12 @@ const ResultPage = () => {
                     </div>
                     <div className='text-center'>
                         <h5 className='fw-bold' style={{ fontFamily: 'Roboto , Sans Serif', marginTop: '-20px', color: "#088383" }}>Your Results</h5>
-                        <h3 className='' style={{ color: '#00AAFF', fontSize: '25px' }}>Congratulations</h3>
+                        <h3 className='' style={{ color: '#00AAFF', fontSize: '25px' }}>{grade.text}</h3>
                         <p className='text-uppercase fw-bolder' style={{ fontSize: '15px', color: `${grade.color}` }}  >{grade.status}</p>
                     </div>
                     <div className='Certificate d-flex flex-column mt-4 col-11 m-auto'>
-                        {/* {gradeGot <= 3 ? <ImageDownload /> : <div></div>} */}
-                        <ImageDownload />
+                        {(grade.gradeGot <= 3 && grade.gradeGot > 0) ? <ImageDownload grade={grade} /> : <div className='text-center' style={{ fontSize: '12px' }} > Score Good to get Certificate ! </div>}
+                        {/* <ImageDownload /> */}
                     </div>
                 </div>
             </div>

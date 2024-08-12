@@ -4,7 +4,7 @@ import "./DownloadCertificate.css"
 import { useNavigate } from "react-router-dom";
 
 
-function ImageDownload() {
+function ImageDownload(grade) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -13,10 +13,13 @@ function ImageDownload() {
     const handleDownload = async () => {
         try {
             navigate("/certificate")
+            localStorage.setItem("grade", JSON.stringify(grade))
+            console.log(grade)
         } catch (error) {
             console.log(error)
         }
     };
+
     return (
         <div>
             <button className="downloadImage" onClick={handleDownload} disabled={loading} >

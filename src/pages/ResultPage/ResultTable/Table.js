@@ -9,13 +9,12 @@ import 'react-circular-progressbar/dist/styles.css';
 import { markContext } from "../../../context/marks.js"
 
 const Result = () => {
-
     const { AnsweredQuestionsList, totalQuestions } = useContext(markContext);
-
     const [correct, setCorrect] = useState(0);
     const [incorrect, setIncorrect] = useState(0);
     const [notAnswered, setNotAnswered] = useState(0);
     const [attempted, setAttempted] = useState(0);
+    const [name, setName] = useState('')
 
     useEffect(() => {
         let correctCount = 0;
@@ -35,14 +34,17 @@ const Result = () => {
                 }
             }
         });
+
         // Update states
         setCorrect(correctCount);
         setIncorrect(incorrectCount);
         setNotAnswered(notAnsweredCount);
         setAttempted(attemptedCount);
+
+        let value = JSON.parse(localStorage.getItem("user"))
+        setName(value)
+
     }, [AnsweredQuestionsList]);
-
-
 
     return (
         <div className='result_bg_container' >
@@ -60,11 +62,11 @@ const Result = () => {
                         </h1>
                         <div className='field_container' style={{ marginTop: "5px" }} >
                             <p className='name_para'>Name <span > :</span></p>
-                            <p className='value_para '>{"Shashank"}</p>
+                            <p className='value_para '> {name} </p>
                         </div>
                         <div className='field_container'>
                             <p className='name_para'>Phone <span > :</span></p>
-                            <p className='value_para    '>{8965652365}</p>
+                            <p className='value_para    '>{String(8965652365).slice(-4).padStart(10, "*")}</p>
                         </div>
                         <div className='field_container'>
                             <p className='name_para' >Email <span > :</span></p>
@@ -72,10 +74,10 @@ const Result = () => {
                                 <p className='value_para '  >{"shashankmende88@gmail.com"}</p>
                             </div>
                         </div>
-                        <div className='field_container'>
+                        {/* <div className='field_container'>
                             <p className='name_para'>DOB <span > :</span></p>
                             <p className='value_para    '>{"25/02/2003"}</p>
-                        </div>
+                        </div> */}
                     </div>
                     <div className='result_data_container'>
                         <h1 className='performance_heading py-3' style={{ fontSize: '20px', borderBottom: "2px solid #ECECEC", backgroundColor: "#F8F9FA", borderRadius: '10px 10px 0 0 ' }} >

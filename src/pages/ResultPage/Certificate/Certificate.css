@@ -14,12 +14,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.Stars {
+    position: relative;
+    left: -305px;
+    top: 165px;
+    z-index: 100;
 }
 
 .imageContainer {
     width: 900px;
     height: 600px;
-    background-image: url("./Certificate.png");
+    background-image: url("./Certificatenew.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

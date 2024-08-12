@@ -3,7 +3,7 @@ import { IoPerson } from "react-icons/io5"
 import './index.scss'
 import { questions } from "../../data"
 import { Question } from "../../components/Question"
-import { useState } from "react"
+import { useContext, useState } from "react"
 
 export const ExamPage = () => {
 
@@ -40,21 +40,22 @@ export const ExamPage = () => {
         e.preventDefault();
         console.log(answers);
     }
-    return(
+
+    return (
         <div className="exam bg-light">
             <header className="exam-header d-flex align-items-center justify-content-between w-100">
                 <div className="exam-logo">
-                    <img src="/images/logo.png" alt="logo"/>
+                    <img src="/images/logo.png" alt="logo" />
                 </div>
                 <div className="header-profile">
-                    <IoPerson className="fs-1"/>
+                    <IoPerson className="fs-1" />
                 </div>
             </header>
             <div className="exam-section d-flex justify-content-between gap-5">
                 <div className="exam-questions-container w-50">
                     <div className="timer">Timer</div>
                     <form className="questions" onSubmit={onQuestionsSubmit}>
-                        <Question each={questions[currentQuestionIndex]} onChange = {onHandleChange}/>
+                        <Question each={questions[currentQuestionIndex]} onChange={onHandleChange} />
                         <div className="navigation-buttons">
                             {currentQuestionIndex > 0 && (
                                 <button

@@ -1,27 +1,3 @@
-
-
-
-// export const Question = ({each, onChange}) => {
-
-//     return(
-//         <div className="question">
-//             <h5>{each.id}{")"}. {each.questionText}</h5>
-//             <div className="options-container">
-//                 {
-//                     each.options.map((option, i) => (
-//                         <div className="option d-flex gap-3" key={i}>
-//                             <input type="radio" value={option} name="option" id={`${option}{each.id}`} onChange={(e) => onChange(e.target.value, each.id)}/>
-//                             <label htmlFor={`${option}{each.id}`}>{option}</label>
-//                         </div>
-//                     ))
-//                 }
-//             </div>
-//         </div>
-//     )
-// }
-
-
-
 import React, { useContext, useState } from 'react';
 import { message, Popconfirm } from 'antd';
 import { useNavigate } from 'react-router-dom';
@@ -32,6 +8,8 @@ const Question = ({ answeredQuestionsList, answeredQuestion, correctAnswered, qu
   handleOptionClick, handleNextQuestion, currentQuestionIndex,
   selectedOptionIndex, questionsLength }) => {
   const [answeredIndex, setAnsweredIndex] = useState(0)
+
+
   const { handleMarks } = useContext(markContext);
 
   const navigate = useNavigate()
@@ -50,10 +28,9 @@ const Question = ({ answeredQuestionsList, answeredQuestion, correctAnswered, qu
     const answeredQuestionCount = answeredQuestion / 2
 
     handleMarks(marks, totalQuestions, answeredQuestionCount, answeredQuestionsListUpdated);
-
-    // handleMarks(correctAnswered, questionsLength, (answeredQuestion / 2), answeredQuestionsList)
-    console.log(answeredQuestionCount)
   };
+
+
   const handleOptionClickChild = (index) => {
     handleOptionClick(index)
     setAnsweredIndex(index)
