@@ -11,7 +11,12 @@
     "antd": "^5.20.1",
     "axios": "^1.7.3",
     "bootstrap": "^5.3.3",
+    "browserify-zlib": "^0.2.0",
+    "crypto-browserify": "^3.12.0",
+    "frontend": "file:",
     "html-to-image": "^1.11.11",
+    "path-browserify": "^1.0.1",
+    "querystring-es3": "^0.2.1",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
     "react-circular-progressbar": "^2.1.0",
@@ -25,6 +30,8 @@
     "reactjs-popup": "^2.0.6",
     "redux": "^5.0.1",
     "sass": "^1.77.8",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

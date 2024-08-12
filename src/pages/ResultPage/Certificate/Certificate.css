@@ -17,12 +17,40 @@
     position: relative;
 }
 
-.Stars {
-    position: relative;
-    left: -305px;
-    top: 165px;
-    z-index: 100;
+.Stars1 {
+    position: absolute;
+    left: 130px;
+    top: 120px;
 }
+
+.Stars1 h1 {
+    color: #E8CC80;
+    font-size: 28px;
+}
+
+.Stars2 {
+    position: absolute;
+    left: 120px;
+    top: 120px;
+}
+
+.Stars2 h1 {
+    color: #E8CC80;
+    font-size: 25px;
+}
+
+.Stars3 h1 {
+    color: #E8CC80;
+    font-size: 25px;
+}
+
+.Stars3 {
+    position: absolute;
+    left: 115px;
+    top: 120px;
+}
+
+
 
 .imageContainer {
     width: 900px;
