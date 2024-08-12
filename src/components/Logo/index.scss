@@ -1,0 +1,22 @@
+.logo{
+    line-height: 1;
+    text-decoration: none;
+    color: var(--primary);
+    span{
+        img{
+            height: 50px;
+        }
+    }
+}
+
+@media screen and (min-width : 992px) {
+    .logo{
+        width: 280px;
+    }
+}
+.toggle-sidebar-button{
+    font-size: 32px;
+    padding-left: 10px;
+    cursor: pointer;
+    color: #012970;
+}

@@ -1,0 +1,49 @@
+/* body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: #eff6fc;
+} */
+
+.MainContainer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageContainer {
+    width: 900px;
+    height: 600px;
+    background-image: url("./Certificate.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.studentName {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 48%;
+    font-family: 'Times New Roman' !important;
+    color: #E4BD5A;
+    font-size: 45px;
+    text-transform: capitalize;
+}
+
+.ExamName {
+    position: relative;
+    top: 57%;
+    font-size: 23px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-family: "sans-serif" !important;
+    text-transform: capitalize;
+}

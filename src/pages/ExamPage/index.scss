@@ -1,0 +1,24 @@
+.exam{
+    height: 100vh;
+    .exam-header{
+        height: 120px;
+        padding: 10px 30px 10px 30px;
+        .exam-logo{
+            height: 100%;
+            img{
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+    .exam-section{
+        height: calc(80vh - 120px);
+        display: flex;
+        align-items: center;
+        padding: 10px 50px 10px 50px;
+        // border: 1px solid red;
+        .exam-questions-container{
+            // border: 1px solid red;
+        }
+    }
+}

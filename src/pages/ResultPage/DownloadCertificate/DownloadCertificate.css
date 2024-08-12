@@ -1,0 +1,6 @@
+.downloadImage {
+    width: 100%;
+    background-color: var(--BlueColor) !important;
+    border: 1px solid var(--BlueColor) !important;
+    color: #F0F4F9 !important;
+}

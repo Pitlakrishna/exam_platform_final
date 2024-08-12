@@ -1,0 +1,21 @@
+.buttonStartExam {
+    border: 1px solid gray;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.buttonStartExam:disabled {
+    cursor: not-allowed !important;
+    background-color: #cccccc !important;
+    color: #666666;
+}
+
+@media screen and (max-width : 540px) {
+    .instructions{
+        height: 100% !important;
+
+        div{
+            padding: 15px !important;
+        }
+    }
+}
