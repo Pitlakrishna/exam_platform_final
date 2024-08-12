@@ -1,0 +1,99 @@
+/* #f6f9ff  */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --border: 1px solid rgba(128, 128, 128, 0.305);
+    --TextColor: #088383;
+    --borderDanger: 1px solid red;
+    --BlueColor: #0000FF;
+}
+
+body {
+    background-color: #F0F4F9;
+    height: 100vh;
+}
+
+.tableData {
+    display: flex;
+    flex-direction: column;
+}
+
+.ResultContainer {
+    display: flex;
+    padding: 0 150px;
+    overflow: hidden;
+}
+
+.ResultContainer::--webkit-scrollbar {
+    display: none;
+}
+
+.tableRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.table {
+    border: 1px solid rgba(128, 128, 128, 0.305);
+    background-color: white;
+}
+
+th {
+    color: blue;
+}
+
+.tableRow td {
+    text-align: center;
+}
+
+.ResultCard {
+    margin-top: 107px;
+    border-radius: 10px;
+    height: 535px;
+}
+
+.ResultCard>h3 {
+    padding-block: 10px;
+    color: var(--TextColor);
+}
+
+.imageTrophy {
+    width: 200px;
+    height: 240px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    /* transform: rotate(-20deg); */
+    /* border: 1px solid red; */
+}
+
+.Certificate button {
+    text-transform: uppercase;
+    font-size: 15px;
+    border-radius: 4px;
+    padding: 5px 0;
+    height: 35px;
+}
+
+.Certificate button:hover {
+    transition: 0.3s ease-in-out;
+    font-size: 16px;
+}
+
+.Certificate button:nth-child(1) {
+    border: 1px solid orange;
+    background-color: transparent;
+    color: orange;
+
+}
+
+/* .Certificate button:nth-child(2) {
+    background-color: var(--BlueColor);
+    border: 1px solid var(--BlueColor);
+    color: #F0F4F9;
+}
+ */

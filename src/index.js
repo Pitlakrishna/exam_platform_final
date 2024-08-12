@@ -8,6 +8,7 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { ControlledContextProvider } from './context/controlledContext';
 import { AuthContextProvider } from './context/authContext';
+import { MarkProvider } from './context/marks';
 
 
 
@@ -16,7 +17,9 @@ root.render(
   <React.StrictMode>
     <ControlledContextProvider>
       <AuthContextProvider>
-        <App />
+        <MarkProvider>
+          <App />
+        </MarkProvider>
       </AuthContextProvider>
     </ControlledContextProvider>
   </React.StrictMode>

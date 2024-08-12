@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../context/authContext';
-// import axios from 'axios';
+import axios from 'axios';
 import { Toast, ToastContainer, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.scss'; 
@@ -11,6 +11,7 @@ export const Login = ({ onSignupClick }) => {
     const { dispatch, error } = useContext(AuthContext);
     const [credentials, setCredentials] = useState({
         email: '',
+        // username : '',
         password: '',
     });
     const [showToast, setShowToast] = useState(false);
@@ -24,11 +25,13 @@ export const Login = ({ onSignupClick }) => {
     const onLoginSubmit = async (e) => {
         e.preventDefault();
         dispatch({ type: "login_start" });
-        console.log(credentials);
 
         try {
             // const res = await axios.post("https://hotelbooking-q4vk.onrender.com/api/auth/login", credentials);
             // dispatch({ type: "login_success", payload: res.data });
+
+            //for temporaray name for certificate
+            localStorage.setItem("user", JSON.stringify("eswararao"));
             navigate("/dashboard");
         } catch (error) {
             const errorMessage = error.response?.data || "An unexpected error occurred";

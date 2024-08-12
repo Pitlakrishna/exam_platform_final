@@ -38,6 +38,16 @@ export const Sidebar = () => {
                         </li>
                     </ul> */}
                 </li>
+
+
+                <a style={{color:"black", textDecoration:"none"}} href="https://profile-frontend-nine.vercel.app/" className="nav-item">
+                    <span className="nav-link collapsed">
+                        <FaWpforms className="i"/>
+                        <span className="">User Profile</span>
+                    </span>
+                </a>
+
+
                 <li className="nav-item">
                     <span className="nav-link collapsed">
                         <FaWpforms className="i"/>
