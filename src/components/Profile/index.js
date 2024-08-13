@@ -42,7 +42,7 @@ const Profile = () => {
         ...prevData,
         email:email
       }))
-  })
+  },[profileData.email])
 
 
   const setEducationFunction = (lst) => {
@@ -139,7 +139,7 @@ const Profile = () => {
           photoPreview: "",
         });
         navigate("/dashboard")
-        localStorage.setItem("profile",JSON.stringify(true))
+        localStorage.setItem("profileImageFetched", JSON.stringify(true));
       }
     } catch (error) {
       console.error("Error response:", error);

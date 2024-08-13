@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../context/authContext";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -14,6 +14,17 @@ export const Login = ({ onSignupClick }) => {
     password: "",
   });
 
+  useEffect(() => {
+    // Check if the user is already logged in
+    const email = JSON.parse(localStorage.getItem("email"));
+    const token = localStorage.getItem(email);
+
+    // Redirect to the dashboard if a token is found
+    if (token) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [navigate]);
+
   const onHandleInput = (e) => {
     setCredentials((prev) => ({
       ...prev,
@@ -26,31 +37,22 @@ export const Login = ({ onSignupClick }) => {
     dispatch({ type: "login_start" });
 
     try {
-      // const url = "http://localhost:3000/exam_profile/login";
-      // const url = ${process.env.REACT_API_URL}/exam_profile/login
-
-      // const url = 'https://profile-backend-3.onrender.com/exam_profile/login'
-      const url = `https://profile-backend-4.onrender.com/exam_profile/login`
-      console.log("url", url)
+      const url = `https://profile-backend-4.onrender.com/exam_profile/login`;
       const response = await axios.post(url, credentials, {
         headers: {
           "Content-Type": "application/json",
         },
       });
 
-      console.log("response from login", response);
-
       if (response.status === 200) {
+        const { jwtToken, message } = response.data;
         localStorage.setItem("user", JSON.stringify("eswararao"));
         localStorage.setItem("email", JSON.stringify(credentials.email));
-        localStorage.setItem('profile',JSON.stringify(false))
-        localStorage.setItem(
-          `${credentials.email}`,
-          JSON.stringify(response.data.jwtToken)
-        );
+        localStorage.setItem(`${credentials.email}`, JSON.stringify(jwtToken));
+        localStorage.setItem("profileImageFetched", JSON.stringify(false));
 
-        toast.success(`${response.data.message}`);
-        navigate("/dashboard");
+        toast.success(message);
+        navigate("/dashboard", { replace: true });
       }
     } catch (error) {
       const errorMessage = error.response?.data?.message || "An unexpected error occurred";
