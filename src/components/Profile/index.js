@@ -3,17 +3,21 @@ import "./index.css";
 import { CgProfile } from "react-icons/cg";
 import { FiEdit } from "react-icons/fi";
 import { IoCloseSharp } from "react-icons/io5";
+import { IoMdArrowBack } from "react-icons/io";
+
 import ProfessionalDetails from "../ProfessionalDetails";
 import axios from "axios";
-
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate()
+  const [imagePath, setImagePath] = useState("");
 
   const [showModal, setShowModal] = useState(false);
   const [education, setEducation] = useState([]);
   const [personalDetails, setPersonalDetails] = useState({});
+  // const [resumePath,setResumePath]=useState('')
+  const [resume, setResume] = useState("");
   const [profileData, setProfileData] = useState({
     firstName: "",
     lastName: "",
@@ -22,10 +26,11 @@ const Profile = () => {
     email: "",
     photo: null,
     photoPreview: "",
+    resumePath: "",
   });
   const [errors, setErrors] = useState({});
-  const [selectedPhoto, setSelectedPhoto] = useState(null); // Temporary storage for the selected photo
-  const [selectedPhotoPreview, setSelectedPhotoPreview] = useState(""); // Temporary storage for the pr
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [selectedPhotoPreview, setSelectedPhotoPreview] = useState("");
 
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
@@ -72,47 +77,8 @@ const Profile = () => {
     if (validateForm()) {
       setPersonalDetails({ ...personalDetails, profileData });
 
-      
-      toast.success("Profile Details saved to Database!", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-
-
-    }
-  };
-
-  const uploadPhoto = async (photo) => {
-    const formData = new FormData();
-    formData.append("photo", photo);
-
-    try {
-      const url = "http://localhost:3000/exam_profile/upload_photo";
-      const response = await axios.post(url, formData);
-
-      if (response.status === 200) {
-        return response.data.imagePath; // Assuming the response contains imagePath
-      } else {
-        console.error("Unexpected response status:", response.status);
-        throw new Error("Unexpected response from server");
-      }
-    } catch (error) {
-      if (error.response) {
-        // Server responded with a status other than 2xx
-        console.error("Response Data:", error.response.data);
-        console.error("Status Code:", error.response.status);
-      } else if (error.request) {
-        // Request was made but no response received
-        console.error("Request Data:", error.request);
-      } else {
-        // Something else caused the error
-        console.error("Error Message:", error.message);
-      }
-      throw new Error("Failed to upload image");
+      alert("Profile details saved!");
+      // toast.success("Profile Details saved to Database!");
     }
   };
 
@@ -123,40 +89,31 @@ const Profile = () => {
       return;
     }
 
-    let photoPath = profileData.photoPreview;
-
-    if (selectedPhoto) {
-      try {
-        photoPath = await uploadPhoto(selectedPhoto);
-      } catch (error) {
-        alert("Failed to upload photo. Please try again.");
-        return;
-      }
-    }
-
-    let reqBody = {
-      personal: {
-        ...profileData,
-        photoPreview: photoPath,
-      },
-    };
-
     const filterOutKey = (obj, keyToFilter) => {
       return Object.keys(obj).reduce((acc, key) => {
         if (key !== keyToFilter) {
           acc[key] = obj[key];
+        } else if (key === "photoPreview") {
+          acc[key] = imagePath;
         }
         return acc;
       }, {});
     };
 
-    reqBody = {
-      personal: filterOutKey(personalDetails.profileData, "photo"),
+    const sampleBody = filterOutKey(personalDetails.profileData, "photo");
+
+    const reqBody = {
+      personal: { ...sampleBody, photoPreview: imagePath },
       education,
     };
 
+    console.log("request body", reqBody);
+
     try {
-      const url = "http://localhost:3000/exam_profile/profile";
+      // const url = "http://localhost:3000/exam_profile/profile";
+      const url = `${process.env.REACT_APP_API_URL}/exam_profile/profile`
+
+      console.log("profile url", url);
       const response = await axios.post(url, reqBody);
 
       if (response.status === 200) {
@@ -185,22 +142,108 @@ const Profile = () => {
 
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
+    console.log("File name", file);
     if (file) {
       const filePreview = URL.createObjectURL(file);
+      console.log("File preview", filePreview);
       setSelectedPhoto(file);
       setSelectedPhotoPreview(filePreview);
     }
   };
 
-  const handlePhotoUpload = () => {
-    // Update the profileData with the selected photo and preview
-    setProfileData({
-      ...profileData,
-      photo: selectedPhoto,
-      photoPreview: selectedPhotoPreview,
-    });
+  const handlePhotoUpload = async () => {
+    if (selectedPhoto) {
+      const formData = new FormData();
+      formData.append("photo", selectedPhoto);
 
-    handleClose(); // Close the modal after uploading
+      try {
+        // https://profile-backend-1r06.onrender.com/exam_profile/uploadImage
+        // const = 'http://localhost:3000/exam_profile/uploadImage'
+        const url = `${process.env.REACT_APP_API_URL}/exam_profile/uploadImage`;
+        console.log("image url", url);
+        const response = await axios.post(url, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
+
+        if (response.status === 200) {
+          const photoPath = response.data.imagePath || selectedPhotoPreview;
+          setProfileData((prevData) => ({
+            ...prevData,
+            photo: photoPath,
+            photoPreview: URL.createObjectURL(selectedPhoto),
+          }));
+          console.log("Photo uploaded successfully:", response.data);
+          setImagePath(response.data.imagePath);
+        } else {
+          console.error("Unexpected response status:", response.status);
+          alert("Failed to upload photo. Please try again");
+        }
+      } catch (error) {
+        console.error("Error uploading photo:", error);
+        if (error.response) {
+          // Server responded with a status other than 2xx
+          console.error("Response Data:", error.response.data);
+          console.error("Status Code:", error.response.status);
+          alert(`Error: ${error.response.data.message || "An error occurred"}`);
+        } else if (error.request) {
+          // Request was made but no response received
+          console.error("Request Data:", error.request);
+          alert(
+            "No response from server. Please check your network connection."
+          );
+        } else {
+          // Something else caused the error
+          console.error("Error Message:", error.message);
+          alert(
+            "An error occurred while uploading the photo. Please try again."
+          );
+        }
+      }
+    } else {
+      alert("No photo selected. Please choose a file to upload.");
+    }
+
+    handleClose();
+  };
+
+  const onClickUploadResume = async () => {
+    try {
+      console.log("Resume upload button is clicked");
+      if (!resume) {
+        // console.log("No resume selected")
+        alert("No resume selected");
+        return;
+      }
+
+      const uploadData = new FormData();
+      uploadData.append("resume", resume);
+      const url = `${process.env.REACT_APP_API_URL}/exam_profile/uploadResume`
+      const response = await axios.post(
+        url,
+        uploadData
+      );
+      console.log("response:", response);
+      setProfileData((prevData) => ({
+        ...prevData,
+        resumePath: response.data.filePath,
+      }));
+
+      alert("Resume uploaded successfully!");
+      setResume("");
+    } catch (error) {
+      if (error.response) {
+        alert(`Error: ${error.response.data.message} || "An error occured"}`);
+      } else {
+        alert("An error occured white uploading the resume. Please try again.");
+      }
+    }
+  };
+
+  const onChangeResumeInput = (e) => {
+    const file = e.target.files[0];
+    setResume(file);
   };
 
   return (
@@ -209,9 +252,13 @@ const Profile = () => {
         style={{
           height: "100vh",
           backgroundColor: "#ffffff",
-          paddingTop: "20px",
+          // paddingTop: "20px",
+          // border:"1px solid red"
+
         }}
       >
+
+        <IoMdArrowBack className="back_arrow" size={30} onClick={() => navigate('/dashboard')} />
         <form className="profile_background_color">
           <div className="section_1">
             <h1 className="create_student_profile_h1">
@@ -321,15 +368,15 @@ const Profile = () => {
                 )}
                 <div className="firstname_lastname_wrapper">
                   <div className="label_input_container">
-                    <label htmlFor="firstname" className="form-label">
-                      First Name<sup style={{ color: "red" }}>*</sup>
+                    <label htmlFor="firstname">
+                      First Name<sup style={{ color: "black" }}>*</sup>
                     </label>
                     <input
                       id="firstname"
                       type="text"
                       required
                       placeholder="First Name"
-                      className="name_input form-control"
+                      className="name_input"
                       onChange={handleInputChange}
                       name="firstName"
                       value={profileData.firstName}
@@ -344,13 +391,13 @@ const Profile = () => {
                     )}
                   </div>
                   <div className="label_input_container">
-                    <label htmlFor="lasttname" className="form-label">Last Name</label>
+                    <label htmlFor="lasttname">Last Name</label>
                     <input
                       id="lasttname"
                       type="text"
                       required
                       placeholder="Last Name"
-                      className="name_input form-control"
+                      className="name_input"
                       onChange={handleInputChange}
                       name="lastName"
                       value={profileData.lastName}
@@ -360,8 +407,8 @@ const Profile = () => {
               </div>
 
               <div className="email_address_container">
-                <label htmlFor="email" className="form-label">
-                  Email Address<sup style={{ color: "red" }}>*</sup>
+                <label htmlFor="email">
+                  Email Address<sup style={{ color: "black" }}>*</sup>
                 </label>
                 <input
                   id="email"
@@ -369,7 +416,7 @@ const Profile = () => {
                   // style={{ width: "80%" }}
                   placeholder="Email Adress"
                   onChange={handleInputChange}
-                  className="email_input form-control"
+                  className="email_input"
                   name="email"
                   required
                   value={profileData.email}
@@ -384,14 +431,14 @@ const Profile = () => {
                 )}
               </div>
               <div className="mobile_number_wrapper email_address_container mt-3">
-                <label htmlFor="mobile_number" className="form-label">
-                  Mobile Number<sup style={{ color: "red" }}>*</sup>
+                <label htmlFor="mobile_number">
+                  Mobile Number<sup style={{ color: "black" }}>*</sup>
                 </label>
                 <input
                   id="mobile_number"
                   type="text"
                   placeholder="Enter mobile number with country code"
-                  className="email_input form-control"
+                  className="email_input"
                   name="mobileNumber"
                   required
                   onChange={handleInputChange}
@@ -407,15 +454,15 @@ const Profile = () => {
                 )}
               </div>
               <div className="location_wrapper email_address_container mt-3">
-                <label htmlFor="location" className="form-label">
-                  Current Location<sup style={{ color: "red" }}>*</sup>
+                <label htmlFor="location">
+                  Current Location<sup style={{ color: "black" }}>*</sup>
                 </label>
                 <input
                   id="location"
                   type="text"
                   required
                   placeholder="Enter your location"
-                  className="email_input form-control"
+                  className="email_input"
                   name="location"
                   onChange={handleInputChange}
                   value={profileData.location}
@@ -430,6 +477,37 @@ const Profile = () => {
                 )}
               </div>
 
+              <div className="resume_wrapper">
+                <label htmlFor="resume">Select Your Resume:</label>
+                <input
+                  onChange={onChangeResumeInput}
+                  type="file"
+                  id="resume"
+                  name="resume"
+                  accept=".pdf,.doc,.docx"
+                  required
+                />
+                <button
+                  onClick={onClickUploadResume}
+                  type="button"
+                  className="resume_upload_button"
+                >
+                  Upload
+                </button>
+                {profileData.resumePath && (
+                  <div className="resume_preview">
+                    <a
+                      href={`${process.env.REACT_APP_API_URL}${profileData.resumePath}`}
+                      target="_blank"
+                      className="resume_preview"
+                      rel="noopener noreferrer"
+                    >
+                      Preview Resume
+                    </a>
+                  </div>
+                )}
+              </div>
+
               <div className="personal_details_save_btn_wrapper">
                 <button
                   type="submit"
@@ -439,21 +517,6 @@ const Profile = () => {
                 >
                   Save
                 </button>
-                <ToastContainer
-                  position="top-right"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                  theme="light"
-                  transition="Bounce"
-                />
-                {/* Same as */}
-                <ToastContainer />
               </div>
             </form>
 
@@ -464,10 +527,17 @@ const Profile = () => {
             </div>
           </div>
           <div
-            style={{ display: "flex", justifyContent: "flex-end" }}
-            onClick={onClickProfileSubmit}
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              marginTop: "20px",
+            }}
           >
-            <button type="submit" className="submit_button mt-3">
+            <button
+              type="submit"
+              className="submit_button"
+              onClick={onClickProfileSubmit}
+            >
               Submit
             </button>
           </div>

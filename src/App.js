@@ -11,6 +11,7 @@ import { FeedBackPage } from './pages/Feedback';
 import { QuestionPopup } from './pages/QuestionPopup';
 import ResultPage from './pages/ResultPage/ResultPage';
 import Certificate from './pages/ResultPage/Certificate/Certificate';
+import Profile from './components/Profile';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path='/result' exact element={<ResultPage />} />
           <Route path="/question-popup" exact element={<QuestionPopup />} />
           <Route path="/certificate" exact element={<Certificate />} />
+          <Route path='/profile' exact element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>

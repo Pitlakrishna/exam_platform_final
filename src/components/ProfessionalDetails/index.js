@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "./index.css";
 import { AiOutlineDelete } from "react-icons/ai";
 import { CiEdit } from "react-icons/ci";
-import { ToastContainer,toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css'
 
 const ProfessionalDetails = (props) => {
     const {setEducationFunction}=props
@@ -48,11 +46,13 @@ const ProfessionalDetails = (props) => {
             });
             setFormVisible(false); 
             setEducationFunction()
-            toast.success("Education added successfully!")
+            // toast.success("Education added successfully!")
+            alert("Education saved!")
+            // toast.success("Education saved!")
 
         } else {
-            // alert("Please faill in all fields."); // Simple form validation
-            toast.warning("Please fill in all fields.")
+            alert("Please faill in all fields."); // Simple form validation
+            // toast.warning("Please fill in all fields.")
         }
     };
 
@@ -105,8 +105,8 @@ const ProfessionalDetails = (props) => {
         setEducationLst([]);
     
         // Provide feedback to the user
-        // alert("Education details saved successfully!");
-        toast.success('Education details saved successfully!')
+        alert("Education details saved successfully!");
+        // toast.success('Education details saved successfully!')
     
         // Optionally reset the form data and hide the form if needed
         setFormData({
@@ -124,7 +124,7 @@ const ProfessionalDetails = (props) => {
 
     return (
         <>
-        <ToastContainer position="top-center"/>
+        {/* <ToastContainer position="top-center"/> */}
             <div className="heading_button_wrapper">
                 <h1 className="personal_details_h1">Educational Details</h1>
                 <button type="button" onClick={onClickAdd} className="btn btn-primary">
@@ -136,7 +136,7 @@ const ProfessionalDetails = (props) => {
                 <div className="education_form_wrapper">
 
                     <div className="degree_name_wrapper">
-                        <label htmlFor={`degree_name_${formData.id}`} className="form-label">
+                        <label htmlFor={`degree_name_${formData.id}`}>
                             Degree Name<sup style={{ color: "red" }}>*</sup>
                         </label>
                         <input
@@ -144,14 +144,14 @@ const ProfessionalDetails = (props) => {
                             name="degreeName"
                             type="text"
                             placeholder="Degree Name"
-                            className="company_name_input form-control"
+                            className="company_name_input"
                             required
                             value={formData.degreeName}
                             onChange={handleInputChange}
                         />
                     </div>
                     <div className="stream_container">
-                        <label htmlFor={`stream_${formData.id}`} className="form-label">
+                        <label htmlFor={`stream_${formData.id}`}>
                             Stream<sup style={{ color: "red" }}>*</sup>
                         </label>
                         <br />
@@ -160,40 +160,40 @@ const ProfessionalDetails = (props) => {
                             name="stream"
                             type="text"
                             placeholder="Stream"
-                            className="company_name_input form-control"
+                            className="company_name_input"
                             required
                             value={formData.stream}
                             onChange={handleInputChange}
                         />
                     </div>
                     <div>
-                        <label htmlFor={`start_year_${formData.id}`} className="form-label">
+                        <label htmlFor={`start_year_${formData.id}`}>
                             Start Year<sup style={{ color: "red" }}>*</sup>
                         </label>
                         <br />
                         <input
                             id={`start_year_${formData.id}`}
                             name="startYear"
-                            type="date"
+                            type="number"
                             required
                             placeholder="Start Year"
-                            className="company_name_input form-control"
+                            className="company_name_input"
                             value={formData.startYear}
                             onChange={handleInputChange}
                         />
                     </div>
                     <div>
-                        <label htmlFor={`end_year_${formData.id}`} className="form-label">
-                            Passed out<sup style={{ color: "red" }}>*</sup>
+                        <label htmlFor={`end_year_${formData.id}`}>
+                            End Year<sup style={{ color: "red" }}>*</sup>
                         </label>
                         <br />
                         <input
                             id={`end_year_${formData.id}`}
                             name="endYear"
-                            type="date"
+                            type="number"
                             required
                             placeholder="End Year"
-                            className="company_name_input form-control"
+                            className="company_name_input"
                             value={formData.endYear}
                             onChange={handleInputChange}
                         />

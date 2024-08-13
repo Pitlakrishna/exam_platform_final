@@ -28,7 +28,14 @@ export const Sidebar = () => {
                     </span>
                 </li> */}
 
-                <a style={{ color: "black", textDecoration: "none" }} href="https://profile-frontend-nine.vercel.app/" className="nav-item">
+                {/* <a style={{ color: "black", textDecoration: "none" }} href="https://profile-frontend-nine.vercel.app/" className="nav-item">
+                    <span className="nav-link collapsed">
+                        <FaWpforms className="i" />
+                        <span className="">User Profile</span>
+                    </span>
+                </a> */}
+
+                <a style={{ color: "black", textDecoration: "none" }} onClick={() => navigate("/profile")} className="nav-item">
                     <span className="nav-link collapsed">
                         <FaWpforms className="i" />
                         <span className="">User Profile</span>
@@ -49,6 +56,7 @@ export const Sidebar = () => {
                         <span className="">Practice</span>
                     </span>
                 </li>
+
                 <li className="nav-item">
                     <span className="nav-link collapsed">
                         <FaWpforms className="i" />
