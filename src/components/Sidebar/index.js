@@ -36,12 +36,13 @@ export const Sidebar = () => {
                 </a>
 
 
-                <li className="nav-item" onClick={() => navigate("/result")} >
+                <li className="nav-item" >
                     <span className="nav-link collapsed">
                         <FaWpforms className="i" />
                         <span className="">Results</span>
                     </span>
                 </li>
+
                 <li className="nav-item">
                     <span className="nav-link collapsed">
                         <FaWpforms className="i" />
