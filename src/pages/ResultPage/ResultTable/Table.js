@@ -14,7 +14,9 @@ const Result = () => {
     const [incorrect, setIncorrect] = useState(0);
     const [notAnswered, setNotAnswered] = useState(0);
     const [attempted, setAttempted] = useState(0);
-    const [name, setName] = useState('')
+    const [name, setName] = useState({ firstName: '', lastName: '' })
+    const [phone, SetPhone] = useState('')
+    const [email, setEmail] = useState('')
 
     useEffect(() => {
         let correctCount = 0;
@@ -44,6 +46,13 @@ const Result = () => {
         let value = JSON.parse(localStorage.getItem("user"))
         setName(value)
 
+        let userName = JSON.parse(localStorage.getItem("profile"))
+        const { email, firstName, lastName, location, mobileNumber } = userName
+
+        setName({ firstName, lastName });
+        SetPhone(mobileNumber)
+        setEmail(email)
+
     }, [AnsweredQuestionsList]);
 
     return (
@@ -62,16 +71,19 @@ const Result = () => {
                         </h1>
                         <div className='field_container' style={{ marginTop: "5px" }} >
                             <p className='name_para'>Name <span > :</span></p>
-                            <p className='value_para '> {name} </p>
+                            <p className='value_para'>
+                                <span>{name.firstName}</span>
+                                {/* <span>{name.lastName}</span> */}
+                            </p>
                         </div>
                         <div className='field_container'>
                             <p className='name_para'>Phone <span > :</span></p>
-                            <p className='value_para    '>{String(8965652365).slice(-4).padStart(10, "*")}</p>
+                            <p className='value_para    '>{String(phone).slice(-4).padStart(10, "*")}</p>
                         </div>
                         <div className='field_container'>
                             <p className='name_para' >Email <span > :</span></p>
                             <div className='valueParaEmailValue'>
-                                <p className='value_para '  >{"ksai94064@gmail.com"}</p>
+                                <p className='value_para '  >{email}</p>
                             </div>
                         </div>
                         {/* <div className='field_container'>

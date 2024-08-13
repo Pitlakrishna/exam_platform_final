@@ -41,9 +41,8 @@ export const Login = ({ onSignupClick }) => {
       console.log("response from login", response);
 
       if (response.status === 200) {
-        localStorage.setItem("user", JSON.stringify("Sai krishna"));
+        // localStorage.setItem("user", JSON.stringify("Sai krishna"));
         localStorage.setItem("email", JSON.stringify(credentials.email));
-        localStorage.setItem('profile',JSON.stringify(false))
         localStorage.setItem(
           `${credentials.email}`,
           JSON.stringify(response.data.jwtToken)

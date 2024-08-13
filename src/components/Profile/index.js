@@ -36,13 +36,13 @@ const Profile = () => {
   const handleShow = () => setShowModal(true);
 
 
-  useEffect(()=>{
+  useEffect(() => {
     const email = JSON.parse(localStorage.getItem("email"))
-    setProfileData((prevData)=>({
-        ...prevData,
-        email:email
-      }))
-  })
+    setProfileData((prevData) => ({
+      ...prevData,
+      email: email
+    }))
+  }, [profileData.email])
 
 
   const setEducationFunction = (lst) => {
@@ -139,7 +139,6 @@ const Profile = () => {
           photoPreview: "",
         });
         navigate("/dashboard")
-        localStorage.setItem("profile",JSON.stringify(true))
       }
     } catch (error) {
       console.error("Error response:", error);
@@ -429,7 +428,7 @@ const Profile = () => {
                 <input
                   id="email"
                   type="text"
-                  style={{cursor:"not-allowed" }}
+                  style={{ cursor: "not-allowed" }}
                   placeholder="Email Adress"
                   // onChange={handleInputChange}
                   className="email_input"
