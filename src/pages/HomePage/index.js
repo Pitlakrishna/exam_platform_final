@@ -27,7 +27,7 @@ export const HomePage = () => {
     return (
         <div className='home-page-container'>
             <header className='header-container d-flex align-items-center justify-content-between gap-4'>
-                <div className='logo' onClick={() => navigate("/")}>
+                <div className='logo'>
                     <img src='/images/WE-HIRE.png' alt='logo' className='logo-img' />
                 </div>
                 <div className='header-nav'>
