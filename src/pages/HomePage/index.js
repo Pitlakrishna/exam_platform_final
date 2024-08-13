@@ -63,7 +63,7 @@ export const HomePage = () => {
                     </>}
                 </div>
             </div>
-            <div className='d-flex flex-column text-center p-3 mt-1 ' style={{ color: "#636363",fontSize:"14px" }}>
+            <div className='d-flex flex-column text-center p-3 mt-3 ' style={{ color: "#636363",fontSize:"14px", }}>
                 <span>Copyright ©️ 2024 All Rights Reserved by Orbysol Systems Pvt.Ltd.</span>
                 {/* <p className='mt-3 fw-bold' style={{color:"white", fontSize:"20px"}}>Powered by Save Bharat</p> */}
             </div>
