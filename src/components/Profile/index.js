@@ -38,19 +38,11 @@ const Profile = () => {
 
   useEffect(() => {
     const email = JSON.parse(localStorage.getItem("email"))
-<<<<<<< HEAD
     setProfileData((prevData)=>({
         ...prevData,
         email:email
       }))
   },[profileData.email])
-=======
-    setProfileData((prevData) => ({
-      ...prevData,
-      email: email
-    }))
-  }, [profileData.email])
->>>>>>> 9cd60948a34e6152020bfdb308445a70e88ed635
 
 
   const setEducationFunction = (lst) => {
@@ -147,10 +139,7 @@ const Profile = () => {
           photoPreview: "",
         });
         navigate("/dashboard")
-<<<<<<< HEAD
         localStorage.setItem("profileImageFetched", JSON.stringify(true));
-=======
->>>>>>> 9cd60948a34e6152020bfdb308445a70e88ed635
       }
     } catch (error) {
       console.error("Error response:", error);
