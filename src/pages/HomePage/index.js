@@ -37,7 +37,7 @@ export const HomePage = () => {
                         isHome && <>
                             <h3 className='fw-bolder' style={{ color: "#F37021" }}>India's Structured Freshers</h3>
                             <h5 className='fw-bolder' style={{ color: "#F37021" }}>Online Test series platform</h5>
-                            <p className='mt-3 fw-bold' style={{ color: "#1A9CD0" }}>Mock Test: 100% FREE, Practice Onllne Test Serles</p>
+                            <p className='mt-3 fw-bold' style={{ color: "#1A9CD0" }}>Mock Test: 100% FREE, Practice Online Test Series</p>
                             <div className='login-signup-container mt-5'>
                                 <div className='login-card d-flex flex-column align-items-center justify-content-center gap-3' onClick={onLoginClick}>
                                     <img src='/images/wehire-login.png' alt='login' />

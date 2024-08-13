@@ -112,9 +112,9 @@ export const Register = ({ onLoginClick }) => {
 
   return (
     <form onSubmit={onRegistrationSubmit}>
-      <h1 className="mb-5 text-center" style={{ color: "#1A9CD0" }}>
+      <h3 className="mb-5 text-center" style={{ color: "#1A9CD0" }}>
         Register
-      </h1>
+      </h3>
       <div className="mb-4 input-field">
         <input
           value={userDetails.email}
