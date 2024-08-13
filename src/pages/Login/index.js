@@ -28,7 +28,9 @@ export const Login = ({ onSignupClick }) => {
     try {
       // const url = "http://localhost:3000/exam_profile/login";
       // const url = ${process.env.REACT_API_URL}/exam_profile/login
-      const url = 'https://profile-backend-3.onrender.com/exam_profile/login'
+
+      // const url = 'https://profile-backend-3.onrender.com/exam_profile/login'
+      const url = `https://profile-backend-4.onrender.com/exam_profile/login`
       console.log("url", url)
       const response = await axios.post(url, credentials, {
         headers: {
@@ -40,6 +42,7 @@ export const Login = ({ onSignupClick }) => {
 
       if (response.status === 200) {
         localStorage.setItem("user", JSON.stringify("eswararao"));
+        localStorage.setItem("email", JSON.stringify(credentials.email));
         localStorage.setItem(
           `${credentials.email}`,
           JSON.stringify(response.data.jwtToken)

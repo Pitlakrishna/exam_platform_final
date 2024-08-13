@@ -91,40 +91,49 @@
 
 
 
-form{
+form {
     background-color: white;
     padding: 20px;
     border-radius: 30px;
-    .input-field{
-        input{
+
+    .input-field {
+        input {
             cursor: pointer;
         }
-        label{
+
+        label {
             color: #F37021;
         }
-        input:hover, input:focus{
+
+        input:hover,
+        input:focus {
             outline: none;
             box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
             border: 1px solid rgba(1, 41, 112, 0.3);
         }
-        span{
+
+        span {
             cursor: pointer;
         }
-        span:hover{
+
+        span:hover {
             color: var(--second);
         }
-        .login-button{
+
+        .login-button {
             border: 1px solid var(--second);
             background-color: var(--second);
             color: white;
         }
-        .login-button:hover{
+
+        .login-button:hover {
             border: 1px solid var(--second);
             color: var(--second);
             background-color: transparent;
         }
+
         @media screen and (max-width : 540px) {
-            p{
+            p {
                 font-size: 14px;
             }
         }
@@ -134,13 +143,13 @@ form{
 
 
 @media screen and (max-width : 440px) {
-.login-container{
-    form{
-        box-shadow: none;
+    .login-container {
+        form {
+            box-shadow: none;
+        }
     }
 }
-}
 
-.red{
+.red {
     outline: red !important;
 }

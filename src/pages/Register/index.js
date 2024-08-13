@@ -3,8 +3,11 @@ import "./index.scss";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+
 
 export const Register = ({ onLoginClick }) => {
+  const navigate = useNavigate()
   const [userDetails, setUserDetails] = useState({
     email: "",
     password: "",
@@ -42,7 +45,8 @@ export const Register = ({ onLoginClick }) => {
       // Send the registration request
       // const url = "http://localhost:3000/exam_profile/registration"
       // const url = ${process.env.REACT_API_URL}/exam_profile/registration
-      const url = 'https://profile-backend-3.onrender.com/exam_profile/registration'
+      // const url = 'https://profile-backend-3.onrender.com/exam_profile/registration'
+      const url = `https://profile-backend-4.onrender.com/exam_profile/registration`
       const response = await axios.post(
         url,
         userDetails,
@@ -53,16 +57,17 @@ export const Register = ({ onLoginClick }) => {
         }
       );
       console.log("response", response)
-
       // Handle successful registration
       if (response.status === 201) {
-        toast.success(`${response.data.message}, Continue to login`, {
+        toast.success(`${response.data.message}, continue to login`, {
           position: "top-center",
           autoClose: 5000,
           closeOnClick: true,
           style: { width: "400px" }
         });
-
+        onLoginClick()
+        // localStorage.setItem()
+        // navigate("/login")
         // Reset form fields
         setUserDetails({
           email: "",

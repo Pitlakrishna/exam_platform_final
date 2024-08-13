@@ -4,14 +4,32 @@ import { FaWpforms } from "react-icons/fa";
 // import { GoChevronDown } from "react-icons/go";
 import './index.scss'
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { IoPerson } from "react-icons/io5";
 
 
 export const Sidebar = () => {
     const navigate = useNavigate();
+    const [url, setUrl] = useState("");
+
+    useEffect(() => {
+        const getImage = async () => {
+            let valueEmail = JSON.parse(localStorage.getItem("email"))
+            const url = `https://profile-backend-4.onrender.com/exam_profile/image/${valueEmail}`
+            console.log(url)
+            const res = await axios.get(url);
+            setUrl(res.data.profile.url);
+        }
+        getImage();
+    }, [url])
+
+
     return (
         <aside id="sidebar" className="sidebar">
             <div className="logo-img d-flex flex-column align-items-center mb-3">
-                <img src="https://r2.erweima.ai/imgcompressed/img/compressed_93d2b03b93923a35d17195ac7375e5d7.webp" alt="prof" />
+                {url && <img src={url} alt="img"/>}
+                {!url && <IoPerson className="fs-1"/>}
                 <h5 className="mt-3">Hello Eswararao</h5>
             </div>
             <ul className="sidebar-nav" id="sidebar-nav">

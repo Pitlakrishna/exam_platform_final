@@ -111,7 +111,8 @@ const Profile = () => {
 
     try {
       // const url = "http://localhost:3000/exam_profile/profile";
-      const url = `${process.env.REACT_APP_API_URL}/exam_profile/profile`
+      // const url = `${process.env.REACT_APP_API_URL}/exam_profile/profile`
+      const url = `https://profile-backend-4.onrender.com/exam_profile/profile`
 
       console.log("profile url", url);
       const response = await axios.post(url, reqBody);
@@ -127,6 +128,7 @@ const Profile = () => {
           photo: null,
           photoPreview: "",
         });
+        navigate("/dashboard")
       }
     } catch (error) {
       console.error("Error response:", error);
@@ -159,7 +161,9 @@ const Profile = () => {
       try {
         // https://profile-backend-1r06.onrender.com/exam_profile/uploadImage
         // const = 'http://localhost:3000/exam_profile/uploadImage'
-        const url = `${process.env.REACT_APP_API_URL}/exam_profile/uploadImage`;
+        // const url = `${process.env.REACT_APP_API_URL}/exam_profile/uploadImage`;
+
+        const url = `https://profile-backend-4.onrender.com/exam_profile/uploadImage`
         console.log("image url", url);
         const response = await axios.post(url, formData, {
           headers: {
@@ -219,7 +223,8 @@ const Profile = () => {
 
       const uploadData = new FormData();
       uploadData.append("resume", resume);
-      const url = `${process.env.REACT_APP_API_URL}/exam_profile/uploadResume`
+      // const url = `${process.env.REACT_APP_API_URL}/exam_profile/uploadResume`
+      const url = `https://profile-backend-4.onrender.com/exam_profile/uploadResume`
       const response = await axios.post(
         url,
         uploadData
@@ -497,7 +502,8 @@ const Profile = () => {
                 {profileData.resumePath && (
                   <div className="resume_preview">
                     <a
-                      href={`${process.env.REACT_APP_API_URL}${profileData.resumePath}`}
+                      // href={`${process.env.REACT_APP_API_URL}${profileData.resumePath}`}
+                      href={`https://profile-backend-4.onrender.com${profileData.resumePath}`}
                       target="_blank"
                       className="resume_preview"
                       rel="noopener noreferrer"
