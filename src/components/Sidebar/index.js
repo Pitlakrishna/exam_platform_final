@@ -72,27 +72,27 @@ export const Sidebar = () => {
           </span>
         </li>
 
-        <li className="nav-item">
-          <span className="nav-link collapsed">
-            <FaWpforms className="i" />
-            <span className="">Results</span>
-          </span>
-        </li>
+                <li className="nav-item">
+                    <span className="nav-link collapsed">
+                        <FaWpforms className="i" />
+                        <span className="">Results</span>
+                    </span>
+                </li>
 
-        <li className="nav-item">
-          <span className="nav-link collapsed">
-            <FaWpforms className="i" />
-            <span className="">Practice</span>
-          </span>
-        </li>
+                <li className="nav-item">
+                    <span className="nav-link collapsed">
+                        <FaWpforms className="i" />
+                        <span className="">Practice</span>
+                    </span>
+                </li>
 
-        <li className="nav-item">
-          <span className="nav-link collapsed">
-            <FaWpforms className="i" />
-            <span className="">Invite Friends</span>
-          </span>
-        </li>
-      </ul>
-    </aside>
-  );
+                <li className="nav-item">
+                    <span className="nav-link collapsed">
+                        <FaWpforms className="i" />
+                        <span className="">Invite Friends</span>
+                    </span>
+                </li>
+            </ul>
+        </aside>
+    );
 };

@@ -46,6 +46,7 @@ export const Register = ({ onLoginClick }) => {
       // const url = "http://localhost:3000/exam_profile/registration"
       // const url = ${process.env.REACT_API_URL}/exam_profile/registration
       // const url = 'https://profile-backend-3.onrender.com/exam_profile/registration'
+
       const url = `https://profile-backend-4.onrender.com/exam_profile/registration`
       const response = await axios.post(
         url,

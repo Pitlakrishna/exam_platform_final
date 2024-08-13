@@ -12,10 +12,9 @@ const Certificate = () => {
 
     // const { gradeScore } = useContext(markContext)
     useEffect(() => {
-        let userName = JSON.parse(localStorage.getItem("user"))
-        console.log(userName);
-        // setName(userName.details.username)
-        setName(userName);
+        let userName = JSON.parse(localStorage.getItem("profile"))
+        const { email, firstName, lastName, location, mobileNumber } = userName
+        setName(`${firstName} ${lastName}`);
         setGrade(JSON.parse(localStorage.getItem("grade")).grade.gradeGot)
         // console.log(grade);
         setCategory(JSON.parse(localStorage.getItem("category")))
