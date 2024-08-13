@@ -35,7 +35,7 @@ export const MainPage = () => {
                     {isHome && <>
                         <h3 style={{color:"#F37021"}}>India's Structured Freshers</h3>
                         <h5 style={{color:"#F37021"}}>Online Test series platform</h5>
-                        <small className='mt-5' style={{color:"#1A9CD0"}}>Mock Test: 100% FREE, Practice Onllne Test Serles</small>
+                        <small className='mt-5' style={{color:"#1A9CD0"}}>Mock Test: 100% FREE, Practice Online Test Series</small>
                         <div className='container d-flex justify-content-center gap-3 mt-5'>
                             <div className='d-flex flex-column align-items-center justify-content-center gap-3' onClick={onLoginClick}>
                                 <img src='/images/wehire-login.png' alt='login'/>

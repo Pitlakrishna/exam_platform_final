@@ -139,7 +139,7 @@ const Profile = () => {
           photoPreview: "",
         });
         navigate("/dashboard")
-        localStorage.setItem("profileImageFetched", JSON.stringify(true));
+        localStorage.setItem("profileImageFetched", JSON.stringify(false));
       }
     } catch (error) {
       console.error("Error response:", error);

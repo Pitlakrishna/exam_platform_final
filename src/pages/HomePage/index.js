@@ -28,7 +28,7 @@ export const HomePage = () => {
                     <img src='/images/WE-HIRE.png' alt='logo' className='logo-img' />
                 </div>
                 <div className='header-nav'>
-                    <span style={{ color: 'rgba(204, 202, 202, 0.6)', fontWeight: "900" }}><CiPhone /> Need Help? <span>Call an expert - 8688424915</span></span>
+                    <span style={{ color: '#636363' }}><CiPhone /> Need Help? <span>Call an expert - 8688424915</span></span>
                 </div>
             </header>
             <div className='home-body-container'  >
@@ -60,7 +60,7 @@ export const HomePage = () => {
                     </>}
                 </div>
             </div>
-            <div className='d-flex flex-column text-center p-3 mt-1 ' style={{ color: "#bbbbc0" }}>
+            <div className='d-flex flex-column text-center p-3 mt-1 ' style={{ color: "'#636363'" }}>
                 <span>Copyright ©️ 2024 All Rights Reserved by Orbysol Systems Pvt.Ltd.</span>
                 {/* <p className='mt-3 fw-bold' style={{color:"white", fontSize:"20px"}}>Powered by Save Bharat</p> */}
             </div>

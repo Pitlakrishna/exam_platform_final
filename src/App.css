@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* font-family: 'Open Sans', sans-serif; */
+
 }
 
 :root {
@@ -13,7 +15,8 @@
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    /* font-family: Georgia, 'Times New Roman', Times, serif   ; */
     /* background-color: var(--bgColor); */
     background-color: #F0F4F9 !important;
     color: #444444;
