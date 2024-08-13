@@ -4,9 +4,12 @@ import { useState } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { Login } from '../Login';
 import { Register } from '../Register';
+import { useNavigate } from 'react-router-dom';
 
 
 export const HomePage = () => {
+
+    const navigate = useNavigate();
 
     const [isLogin, setIsLogin] = useState(false);
     const [isHome, setIsHome] = useState(true);
@@ -24,7 +27,7 @@ export const HomePage = () => {
     return (
         <div className='home-page-container'>
             <header className='header-container d-flex align-items-center justify-content-between gap-4'>
-                <div className='logo'>
+                <div className='logo' onClick={() => navigate("/")}>
                     <img src='/images/WE-HIRE.png' alt='logo' className='logo-img' />
                 </div>
                 <div className='header-nav'>
@@ -60,7 +63,7 @@ export const HomePage = () => {
                     </>}
                 </div>
             </div>
-            <div className='d-flex flex-column text-center p-3 mt-1 ' style={{ color: "'#636363'" }}>
+            <div className='d-flex flex-column text-center p-3 mt-1 ' style={{ color: "#636363",fontSize:"14px" }}>
                 <span>Copyright ©️ 2024 All Rights Reserved by Orbysol Systems Pvt.Ltd.</span>
                 {/* <p className='mt-3 fw-bold' style={{color:"white", fontSize:"20px"}}>Powered by Save Bharat</p> */}
             </div>
