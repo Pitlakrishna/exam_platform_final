@@ -38,11 +38,11 @@ const Profile = () => {
 
   useEffect(() => {
     const email = JSON.parse(localStorage.getItem("email"))
-    setProfileData((prevData)=>({
-        ...prevData,
-        email:email
-      }))
-  },[profileData.email])
+    setProfileData((prevData) => ({
+      ...prevData,
+      email: email
+    }))
+  }, [profileData.email])
 
 
   const setEducationFunction = (lst) => {
