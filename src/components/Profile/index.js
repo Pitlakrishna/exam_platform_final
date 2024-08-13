@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import { CgProfile } from "react-icons/cg";
 import { FiEdit } from "react-icons/fi";
@@ -34,6 +34,16 @@ const Profile = () => {
 
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
+
+
+  useEffect(()=>{
+    const email = JSON.parse(localStorage.getItem("email"))
+    setProfileData((prevData)=>({
+        ...prevData,
+        email:email
+      }))
+  })
+
 
   const setEducationFunction = (lst) => {
     setEducation(lst);
@@ -129,6 +139,7 @@ const Profile = () => {
           photoPreview: "",
         });
         navigate("/dashboard")
+        localStorage.setItem("profile",JSON.stringify(true))
       }
     } catch (error) {
       console.error("Error response:", error);
@@ -418,11 +429,12 @@ const Profile = () => {
                 <input
                   id="email"
                   type="text"
-                  // style={{ width: "80%" }}
+                  style={{cursor:"not-allowed" }}
                   placeholder="Email Adress"
-                  onChange={handleInputChange}
+                  // onChange={handleInputChange}
                   className="email_input"
                   name="email"
+                  readOnly
                   required
                   value={profileData.email}
                 />
